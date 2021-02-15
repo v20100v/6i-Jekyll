@@ -1,9 +1,10 @@
-import './main';
 import '../scss/layouts/projects.scss';
 import Masonry from 'masonry-layout';
-import { dom } from '@fortawesome/fontawesome-svg-core'
 
-(() => {
+import * as Utils from './utils';
+
+Utils.Dom.ready(() => {
+    console.log('[6i-Jekyll] Dom ready !');
 
     // Persist in high scope all masonries (one masonry by year)
     let masonries = [];
@@ -372,24 +373,10 @@ import { dom } from '@fortawesome/fontawesome-svg-core'
     };
 
     /**
-     * Call callback that will be triggered when the Fontawesome icons have been rendered. In order to change icon on
-     * click, we must wait that all icons have been rendered to access svg content icon.
-     *
-     * dom.i2svg() Will automatically find any <i> tags in the page and replace those with <svg> elements.
-     */
-    const _fontawesomeReady = (callback) => {
-        dom.i2svg().then(() => {
-           callback();
-        });
-    };
-
-    /**
      * Load user preferences in projects view page (show technologies, show as list or grid)
      */
     const _loadUserPreferences = () => {
-        _fontawesomeReady(() => {
-            console.log('[6i-Jekyll-Theme] All Fontawesome icons have been rendered !');
-
+        Utils.Dom.fontawesomeReady(() => {
             if (window.localStorage) {
                 let userPreferences = {};
                 userPreferences.showTechnologies = window.localStorage.getItem('userPreferences.showTechnologies');
@@ -405,7 +392,7 @@ import { dom } from '@fortawesome/fontawesome-svg-core'
                 // Show project as a list or as grid
                 let btn = document.querySelector('#btn-show-as-list-or-grid');
                 let svg = btn.querySelectorAll('svg[data-fa-i2svg]')[0];
-                if(userPreferences.showAs === 'list') {
+                if (userPreferences.showAs === 'list') {
                     _showAsList(btn, svg);
                 } else {
                     _showAsGrid(btn, svg);
@@ -429,5 +416,6 @@ import { dom } from '@fortawesome/fontawesome-svg-core'
         _handleClickShowTechnologies();
         _handleFilters();
     })();
+});
 
-})();
+
