@@ -1,6 +1,26 @@
+# Ruby Gem
 *.gem
 .bundle
-.jekyll-cache
-.sass-cache
-_site
 Gemfile.lock
+**/vendor/bundle
+
+# Jekyll generated files
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+_asset_bundler_cache
+_site
+
+# Webpack generated files
+assets/build
+_data/webpackstats.json
+
+# Node.js
+node_modules
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Idea files
+.idea/*
