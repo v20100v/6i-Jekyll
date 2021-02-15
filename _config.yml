@@ -1,0 +1,157 @@
+# 6i Jekyll Theme configuration
+
+# -------------------
+# Site configuration
+# -------------------
+encoding: utf-8
+lang: fr-FR # Set the default site language
+# Site's title used as part of the title tag - used in jekyll-seo-tag
+title: '6i-Jekyll'
+# A short description (e.g., A blog dedicated to reviewing cat gifs), used as part of the title tag like Ben's Awesome
+# Site | A blog dedicated to reviewing cat gifs instead of Ben's Awesome Site | Long description about a blog dedicated
+# to reviewing cat gifs that would be used when page.title is not defined - used in jekyll-seo-tag
+tagline: 6i Jekyll theme for blog & IT projects portfolio
+# A longer description used for the description meta tag. Also used as fallback for pages that don't provide their own
+# description, and also as part of the page's title tag if neither page.title nor site.tagline has been defined.
+description: >-
+  Ideas, imagine, impulse, innovate, implement & improve
+# URL to a site-wide logo (e.g., /assets/your-company-logo.png) - If you would like the "publisher" property to be
+# present, you must add this field to your site's configuration, during the validation of the structured data by Google
+# Search Console - used in jekyll-seo-tag
+logo: /assets/6i-Jekyll-banner_1500x500.jpg
+# Site url - used in jekyll-seo-tag
+# url: "https://username.github.io/"
+baseurl: ""
+favicon: assets/favicon.ico
+
+# --------------------
+# Theme configuration
+# --------------------
+social:
+  # Enable social share button
+  share_buttons:
+    twitter: true
+    linkedin: true
+    facebook:
+    email: true
+
+  # Enable icons in footer : RSS, email and follow buttons
+  rss: true
+  email_address: vb20100bv@gmail.com
+  github: "v20100v"
+  twitter:
+  facebook:
+  linkedin: "v20100v"
+
+# ---------------------
+# Jekyll configuration
+# ---------------------
+# Marks end of excerpt in posts
+excerpt_separator: <!--more-->
+
+# Disable Rouge syntax highlighter in order to replace it by another engine Prism.js
+# Be aware if you used a Jekyll webiste hosted on Github Pages. In this case, we need
+# some hack in configuration to disable Rouge, bu adding folowing lines.
+highlighter: none
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+# ---------------
+# Jekyll plugins
+# ---------------
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate-v2
+  - jekyll-seo-tag
+  - jekyll-email-protect
+  - jekyll-include-cache
+
+# ------------------------
+# Exclude from processing
+# ------------------------
+# The following items will not be processed, by default.
+exclude:
+  - './*.js'
+  - '*.gemspec'
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - yarn.lock
+
+# -------------------------
+# Custom Jekyll collection
+# -------------------------
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name
+
+# ------------------------------------
+# Front matter defaults configuration
+# ------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# --------------------------
+# Plugin jekyll-paginate-v2
+# --------------------------
+# See https://github.com/sverrirs/jekyll-paginate-v2
+pagination:
+  enabled: true
+  collection: 'posts'
+  per_page: 2
+  sort_field: 'date'
+  sort_reverse: true
+  permalink: '/page/:num/'
+
+# -------------------------------
+# Plugin jekyll-feed (Atom feed)
+# -------------------------------
+# See https://github.com/jekyll/jekyll-feed
+# To generate an Atom feed at /feed.xml, just add {% feed_meta %} into your head tag.
+rss:
+  path: feed.xml
+feed:
+  posts_limit: 20
+
+# ------------------------------------------------------------
+# Plugin jekyll-sitemap (Generate sitemap for search engines)
+# ------------------------------------------------------------
+# See https://github.com/jekyll/jekyll-sitemap
+# Sitemaps are an easy way to inform search engines about pages on their sites that are available for crawling.
+# This plugin is used to silently generate a sitemaps.org compliant sitemap. If you would like to exclude specific
+# pages/posts from the sitemap, just set the sitemap flag to false in the front matter for the page/post.
+
+# -----------------------------------------------
+# Plugin jekyll-email-protect (Protection email)
+# -----------------------------------------------
+# See https://github.com/vwochnik/jekyll-email-protect
+# Plugin to email protection liquid filter which can be used to obfuscate mailto: links to protect from spam bots.
+# In your markup, simply use the encode_email liquid filter made available through this plugin
+# <a href="mailto:{{ site.email | encode_email }}" title="Contact me">Contact me</a>
+
+# ----------------------------------------------------------------------------------
+# Plugin jekyll-seo-tag (Add metadatas tags for search engines and social networks)
+# ----------------------------------------------------------------------------------
+# See https://github.com/jekyll/jekyll-seo-tag
