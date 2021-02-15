@@ -1,0 +1,23 @@
+---
+layout: page
+---
+
+<article class="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-10 mx-auto">
+                {{ content }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-xl-10 mx-auto">
+                <footer class="footer-page">
+                    {% assign page_tags = page.tags | join:'|' | append:'|' %}
+                    {%- include elements/tags.html tags=page_tags -%}
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    {% include elements/navigation.html %}
+</article>

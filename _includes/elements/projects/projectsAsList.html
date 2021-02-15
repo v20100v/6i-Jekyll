@@ -1,0 +1,49 @@
+<!-- List & sort projects -->
+{%- assign idx = 0 -%}
+{% assign sorted = site.projects | sort: 'date' | reverse %}
+
+<div class="projects-as-list d-none">
+    {%- for project in sorted -%}
+        {%- assign projectYear = project.date | date: "%Y" -%}
+        {%- assign projectMonth = project.date | date: "%-m" -%}
+        {%- assign idx = idx | plus:1 -%}
+
+        {%- if projectYear != currentYear -%}
+            {% unless forloop.first %}
+                </ul>
+            </div> <!-- Close <div class="col-12 ..."> -->
+        </div> <!-- Close <div class="row"> -->
+    </div> <!-- Close <div class="blocks-year"> -->
+                {% assign idx = 1 %}
+            {%- endunless -%}
+            {% assign currentYear = projectYear %}
+    <div class="blocks-year">
+        <h1 class="title-with-hr year{% unless forloop.first %} mt-2{%- endunless -%}">{{ currentYear }}</h1>
+            <div class="row projects list">
+                <div class="col-12">
+                    <ul>
+        {% endif %}
+                        <li class="project"
+                            data-index="{{ forloop.index0 }}"
+                            data-project-title="{{ project.title }}"
+                            data-project-type="{{ project.type }}"
+                            data-project-technologies="{{ project.technologies | sort | uniq | join:'|' }}">
+                            <div class="type-project">{%- include elements/project/projectType.html type=project.type -%}</div>
+                            <div class="link-project">
+                                {%- include functions/i18nFormatMonthDate.html date=project.date -%}&nbsp;::&nbsp;
+                                <a href="{{ project.url | relative_url }}">
+                                    {{ project.title }} {%- if project.subtitle -%}<span class="project-subtitle"> :: {{ project.subtitle }}</span>{%- endif -%}
+                                </a>
+                            </div>
+                            <p class="project-technologies d-none mb-4">
+                                <small class="text-muted">
+                                    <span class='badge bg-primary'>{{ project.technologies | join: "</span> <span class='badge bg-primary'>"}}</span>
+                                </small>
+                            </p>
+                        </li>
+    {% endfor %}
+                </ul> <!-- Last close -->
+            </div>
+        </div>
+    </div> <!-- Last close <div class="blocks-year"> -->
+</div> <!-- End close <div class="projects-as-list"> -->

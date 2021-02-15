@@ -1,0 +1,76 @@
+---
+layout: page
+webpack_entry_styles: ['projects', 'page']
+---
+
+<!-- Main Content -->
+<div class="container project">
+
+    <h1>
+        {{ page.title }}
+        {% if page.subtitle %}
+            <span class="project-subtitle"> :: {{ page.subtitle }}</span>
+        {% endif %}
+    </h1>
+
+    <div class="row">
+        <div class="col-lg">
+            <p class="project-description">
+                {{ page.description }}
+            </p>
+        </div>
+        <div class="col-lg">
+
+            <ul class="list-group-flush project-metas">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-4">
+                            Release date
+                        </div>
+                        <div class="col">
+                            {% include functions/i18nFormatMonthDate.html date=page.date %}
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-4">
+                            Type
+                        </div>
+                        <div class="col">
+                            {%- include elements/project/projectType.html type=page.type -%}
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-4">
+                            Technologies
+                        </div>
+                        <div class="col">
+                            <span class='badge bg-primary'>{{ page.technologies | join: "</span> <span class='badge bg-primary'>"}}</span>
+                        </div>
+                    </div>
+                </li>
+                {% if page.website %}
+                <li class="list-group-item">
+                    {%- include elements/project/projectWebsite.html -%}
+                </li>
+                {% endif %}
+                {% if page.github or page.repository %}
+                <li class="list-group-item">
+                    {%- include elements/project/projectRepository.html -%}
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mx-auto">
+            {{ content }}
+        </div>
+    </div>
+
+    {% include elements/navigation.html %}
+</div>

@@ -1,0 +1,36 @@
+<header id="main-header" class="bg-dark">
+    {% include header/navbar.html %}
+
+    {% if layout.disable_header_title != true %}
+
+        {% if page.image %}
+            {% assign page_image = page.image.path | default: page.image %}
+            {% unless page_image contains '://' %}
+                {% assign page_image = page_image | relative_url %}
+            {% endunless %}
+            {% assign page_image = page_image | escape %}
+            <div class="post-image" style="background-image:url('{{ page_image }}');"{% if page.image.credits %} data-credits="{{ page.image.credits | escape }}"{% endif %}>
+        {% endif %}
+
+        <h1 class="active">
+            <span>{{ page.title }}</span>
+        </h1>
+        {% if page.id %}
+            <p class="post-date">
+                {%- include functions/i18nFormatDayDate.html date=page.date -%}
+            </p>
+        {% endif %}
+
+    {% endif %}
+
+    <svg class="diagonal" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 100 10"
+         preserveAspectRatio="none">
+        <polygon points="100 0, 100 10, 0 10"/>
+    </svg>
+
+    {% if page.image %}
+        </div> <!-- Close page-image -->
+    {% endif %}
+
+</header>

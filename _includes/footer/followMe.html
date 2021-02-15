@@ -1,0 +1,48 @@
+{% if site.social.twitter %}
+<li class="list-inline-item">
+    <a class="type"
+       href="https://twitter.com/{{ site.social.twitter }}"
+       title="Follow me on Twitter">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+    </a>
+</li>
+{% endif %}
+
+{% if site.social.facebook %}
+<li class="list-inline-item">
+    <a href="https://www.facebook.com/{{ site.social.facebook }}"
+       title="Follow me on Facebook">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+    </a>
+</li>
+{% endif %}
+
+{% if site.social.github %}
+<li class="list-inline-item">
+    <a href="https://github.com/{{ site.social.github }}"
+       title="Follow me on GitHub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+    </a>
+</li>
+{% endif %}
+
+{% if site.social.linkedin %}
+<li class="list-inline-item">
+    <a href="https://www.linkedin.com/in/{{ site.social.linkedin }}"
+       title="Follow me on LinkedIn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+    </a>
+</li>
+{% endif %}

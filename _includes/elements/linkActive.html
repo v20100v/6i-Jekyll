@@ -1,0 +1,2 @@
+<a class="nav-link {% if include.class %}{{ include.class }}{% endif %}{% if page.url == include.url %} active{% endif %}"
+   href="{{ include.href | relative_url }}">{{ include.linktext }}</a>

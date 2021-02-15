@@ -1,0 +1,31 @@
+---
+layout: page
+disable_header_title: true
+---
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-10 mx-auto">
+            <h1 class="title-with-hr">Recent Posts</h1>
+
+            <ul>
+            {% for post in site.posts offset:0 limit:5 %}
+                <li class="d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
+                    <span class="post-title mr-2">
+                        {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </span>
+                    <span class="post-tags mb-2 mb-lg-0 mb-xl-0">
+                        <span class='badge bg-primary badge-tag'>{{ post.tags | join: "</span> <span class='badge bg-primary badge-tag'>"}}</span>
+                    </span>
+                </li>
+            {% endfor %}
+            </ul>
+
+            <p>
+                <a href="/blog">View more posts</a>
+            </p>
+
+        </div>
+    </div>
+</div>

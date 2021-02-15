@@ -1,0 +1,10 @@
+{%- assign date = include.date %}
+{%- assign currentMonth = date | date: "%-m" -%}
+{%- include functions/i18nMonth.html month=currentMonth -%}
+<span class="date">
+{%- if site.lang == "fr" -%}
+    {{ monthLocalized }} {{ date | date: "%Y" }}
+{%- else -%}
+    {{ date | date: "%B %Y" }}
+{%- endif -%}
+</span>

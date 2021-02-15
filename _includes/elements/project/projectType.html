@@ -1,0 +1,24 @@
+{%- assign type = include.type | upcase %}
+{%- assign image_url = "" -%}
+
+<div class="project-type d-flex align-items-center">
+    <div class="project-type-icon">
+        {% case type %}
+            {% when "WEB APPLICATION" %}
+                {%- assign image_url = "assets/build/images/icons/web-application.png" -%}
+            {% when "CONSOLE APPLICATION" %}
+                {%- assign image_url = "assets/build/images/icons/cli-application.png" -%}
+            {% when "WINDOWS APPLICATION" %}
+                {%- assign image_url = "assets/build/images/icons/windows-application.png" -%}
+            {% when "FRAMEWORK" %}
+                {%- assign image_url = "assets/build/images/icons/framework.png" -%}
+            {% else %}
+                {%- assign image_url = "assets/build/images/icons/project-default.png" -%}
+        {% endcase %}
+
+        {%- if image_url != "" -%}
+            <img src="{{ image_url | relative_url }}"/>
+        {%- endif -%}
+    </div>
+    <div class='project-type-title'>{{ include.type }}</div>
+</div>

@@ -1,0 +1,19 @@
+<div id="navigation" class="mt-5 mb-2 py-4 px-5">
+    {% if page.next.url %}
+    <div id="next">
+        <p>Next</p>
+        <a alt="{{ page.next.title }}" href="{{ page.next.url | relative_url }}">
+            {{ page.next.title }}
+        </a>
+    </div>
+    {% endif %}
+
+    {% if page.previous.url %}
+    <div id="previous">
+        <p>Previous</p>
+        <a alt="{{ page.previous.title }}" href="{{ page.previous.url | relative_url }}">
+            {{ page.previous.title }}
+        </a>
+    </div>
+    {% endif %}
+</div>

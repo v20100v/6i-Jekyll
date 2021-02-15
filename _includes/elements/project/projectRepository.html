@@ -1,0 +1,24 @@
+{% assign repository = page.github | default: page.repository %}
+
+{% if repository %}
+<div class="row">
+    <div class="col-4">
+        Repository
+    </div>
+    <div class="col-8">
+        {% if page.repository contains "github" %}
+            {%- assign icon = "fab fa-github" -%}
+            {%- assign text = "Github" -%}
+        {% else if page.repository contains "git" %}
+            {%- assign icon = "fab fa-git-alt" -%}
+            {%- assign text = "Git" -%}
+        {% else %}
+            {%- assign icon = "far fa-file-code" -%}
+            {%- assign text = "View code" -%}
+        {%- endif -%}
+
+        <a href="{{ repository }}"><i class="{{ icon }}"></i></a>&nbsp;<a href="{{ repository }}">{{ text }}</a>
+    </div>
+</div>
+{% endif %}
+

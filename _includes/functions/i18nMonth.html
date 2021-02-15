@@ -1,0 +1,33 @@
+{%- assign monthLocalized = "Not parsed" -%}
+
+{%- if site.lang == "fr" -%}
+    {%- case include.month -%}
+        {%- when '1' -%} {%- assign monthLocalized = "Janvier" -%}
+        {%- when '2' -%} {%- assign monthLocalized = "Février" -%}
+        {%- when '3' -%} {%- assign monthLocalized = "Mars" -%}
+        {%- when '4' -%} {%- assign monthLocalized = "Avril" -%}
+        {%- when '5' -%} {%- assign monthLocalized = "Mai" -%}
+        {%- when '6' -%} {%- assign monthLocalized = "Juin" -%}
+        {%- when '7' -%} {%- assign monthLocalized = "Juillet" -%}
+        {%- when '8' -%} {%- assign monthLocalized = "Août" -%}
+        {%- when '9' -%} {%- assign monthLocalized = "Septembre" -%}
+        {%- when '10' -%} {%- assign monthLocalized = "Octobre" -%}
+        {%- when '11' -%} {%- assign monthLocalized = "Novembre" -%}
+        {%- when '12' -%} {%- assign monthLocalized = "Décembre" -%}
+    {%- endcase -%}
+{%- else -%}
+    {%- case include.month -%}
+        {%- when '1' -%} {%- assign monthLocalized = "January" -%}
+        {%- when '2' -%} {%- assign monthLocalized = "February" -%}
+        {%- when '3' -%} {%- assign monthLocalized = "March" -%}
+        {%- when '4' -%} {%- assign monthLocalized = "April" -%}
+        {%- when '5' -%} {%- assign monthLocalized = "May" -%}
+        {%- when '6' -%} {%- assign monthLocalized = "June" -%}
+        {%- when '7' -%} {%- assign monthLocalized = "July" -%}
+        {%- when '8' -%} {%- assign monthLocalized = "August" -%}
+        {%- when '9' -%} {%- assign monthLocalized = "September" -%}
+        {%- when '10' -%} {%- assign monthLocalized = "October" -%}
+        {%- when '11' -%} {%- assign monthLocalized = "November" -%}
+        {%- when '12' -%} {%- assign monthLocalized = "December" -%}
+    {%- endcase -%}
+{%- endif -%}

@@ -1,0 +1,11 @@
+{% assign tags = include.tags | upcase | split:'|' | sort | uniq %}
+
+{% if tags.size > 0 %}
+<div id="page-tags">
+    <p><i class="fa fa-tag fa-fw"></i> Tags</p>
+
+    {% for tag in tags %}
+        <a class="page-tag" href="{{ "/tags" | relative_url }}#{{ tag | strip | cgi_escape }}">{{ tag | strip }}</a>
+    {% endfor %}
+</div>
+{% endif %}

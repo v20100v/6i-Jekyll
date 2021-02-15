@@ -1,0 +1,44 @@
+---
+layout: page
+---
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-10 mx-auto">
+
+            <!-- Pagination list posts -->
+            {% for post in paginator.posts %}
+            <div class="post-preview">
+                <a href="{{ post.url | relative_url }}">
+                    <h2 class="post-title">
+                        {{ post.title }}
+                    </h2>
+                </a>
+                <p class="post-excerpt">
+                    {{ post.excerpt | strip_html | escape }}
+                </p>
+                <p class="post-date">
+                    {%- include functions/i18nFormatDayDate.html date=post.date -%}
+                </p>
+            </div>
+            {% endfor %}
+
+            <hr>
+
+            <!-- Pager -->
+
+            {% if paginator.total_pages > 1 %}
+            <div class="pager clearfix">
+                {% if paginator.previous_page %}
+                    <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+                {% endif %}
+                {% if paginator.next_page %}
+                    <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{%- assign title = include.title | 'Error' -%}
+{%- assign body = include.body | nil -%}
+{%- assign debug = include.debug | nil -%}
+
+<div class="alert alert-danger" role="alert">
+    <p><b>{{ title }}</b></p>
+    <p>{{ body }}</p>
+    {%- if debug -%}
+        <hr/>
+        <code>
+            {{ debug }}
+        </code>
+    {%- endif -%}
+</div>

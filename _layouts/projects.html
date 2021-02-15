@@ -1,0 +1,80 @@
+---
+layout: page
+permalink: /projects/
+webpack_entry_scripts: ['projects']
+webpack_entry_styles: ['projects']
+---
+
+<!-- Iterate through projects collection -->
+{% assign technologies =  site.projects | map: 'technologies' | join: ','  | split: ',' | uniq | sort %}
+{% assign types =  site.projects | map: 'type' | join: ','  | split: ',' | uniq | sort %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-12 mx-auto">
+
+            <!-- Buttons : show as list, show as grid -->
+            <div class="buttonsGridList">
+                <button id="btn-filter"
+                        title="Apply a filter"
+                        class="btn btn-primary"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFilters"
+                        aria-expanded="false"
+                        aria-controls="collapseFilters"><i class="fas fa-filter"></i>
+                </button>
+                <button id="btn-show-technologies"
+                        title="Show technologies"
+                        type="button" class="btn btn-primary"><i class="fas fa-laptop-code"></i>
+                </button>
+                <button id="btn-show-as-list-or-grid"
+                        title="Show as a list"
+                        type="button" class="btn btn-primary"><i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="collapseFilters" class="collapse row mt-2">
+        <div class="col-12 col-xl-12 mx-auto text-center">
+            <div class="filters">
+                <hr/>
+
+                <div class="filter-types">
+                    {%- for item in types -%}
+                    <button type="button"
+                            class="btn btn-outline-primary btn-filterByType"
+                            data-filter-value="{{ item }}">
+                        {%- include elements/project/projectType.html type=item -%}
+                    </button >
+                    {%- endfor -%}
+                </div>
+
+                <div class="filter-technologies d-none">
+                    <p class="subtitle"><i class="fas fa-laptop-code"></i> Technologies</p>
+
+                    {%- for item in technologies -%}
+                    <button type="button"
+                            class="btn btn-outline-primary btn-filterByTechnology"
+                            data-filter-value="{{ item }}">
+                        {{ item }}
+                    </button >
+                    {%- endfor -%}
+                </div>
+
+                <hr/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-12 mx-auto">
+            <!-- Show all projects in a grid (bootstrap 5 cards + masonry.js) -->
+            {% include elements/projects/projectsAsGrid.html %}
+
+            <!-- Show all projects in a list -->
+            {% include elements/projects/projectsAsList.html %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+---
+layout: page
+webpack_entry_scripts: ['tags']
+webpack_entry_styles: ['tags']
+---
+
+<!-- cycles through posts to get tags -->
+{% assign rawtags = "" %}
+{% for post in site.posts %}
+    {% if post.tags.size > 0 %}
+        {% assign post_tags = post.tags | join:'|' | append:'|' %}
+        {% assign rawtags = rawtags | append:post_tags %}
+    {% endif %}
+{% endfor %}
+
+<!-- cycles through portfolio collection to get tags -->
+{% assign project =  site.projects | map: 'tags' | join: ','  | split: ',' | uniq %}
+{% for tag in projects %}
+    {% assign portfolio_tags = tag | join: '|' | append: '|' %}
+    {% assign rawtags = rawtags | append: portfolio_tags %}
+{% endfor %}
+
+<!-- cycles through pages to get tags -->
+{% for page in site.pages %}
+    {% if page.tags.size > 0 %}
+        {% assign page_tags = page.tags | join:'|' | append:'|' %}
+        {% assign rawtags = rawtags | append:page_tags %}
+    {% endif %}
+{% endfor %}
+{% assign tags = rawtags | upcase | split:'|' | sort | uniq %}
+
+<!-- Main Content -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mx-auto">
+            <div class="list-tags">
+                {% if tags.size > 0 %}
+                <div id="page-tags">
+                    {% for tag in tags %}
+                        <a class="page-tag" href="{{ "/tags" | relative_url }}#{{ tag | strip | cgi_escape }}">{{ tag | strip }}</a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p>No tags found in your post, site and project pages.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="co-lg-10 col-md-10 mx-auto">
+            {% for tag in tags %}
+                <div class="list-pages-by-tag">
+                    <h3 id="{{ tag | cgi_escape }}" class="tag-anchor">
+                        <i class="fa fa-tag fa-fw"></i> {{ tag }}
+                        <a href="#main-header" style="float: right"><i class="fa fa-chevron-up" aria-hidden="true"> </i> </a>
+                    </h3>
+                </div>
+
+                <!-- Posts -->
+                {% for post in site.posts %}
+                    {% assign post_tags = post.tags | join: ',' | upcase | split: ',' %}
+                    {% if post_tags contains tag %}
+                    <li class="d-flex justify-content-between">
+                        <span class="post-title flex-grow-1 mr-2">
+                            {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </span>
+                        <span class="post-categories ml-auto">
+                        </span>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+        </div>
+    </div>
+</div>

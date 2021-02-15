@@ -1,0 +1,79 @@
+{%- assign slides = include.slides | split: ';' -%}
+{%- assign classes = include.classes | split: ';' -%}
+
+{%- if classes.first -%}
+    {%- if classes.size == 1 -%}
+        {%- assign temp = nil -%}
+        {%- for slide in slides -%}
+            {%- assign temp = temp | append:classes[0] | append:'|'-%}
+        {%- endfor -%}
+        {% assign classes = temp | split: '|'%}
+    {%- endif -%}
+
+    {%- if classes.size != slides.size -%}
+        {%- capture errorMsg -%}
+            It exists {{ classes.size }} classes for {{ slides.size }} slides. Either there is one class for all the slides, or there are as many classes as there are slides.
+        {%- endcapture -%}
+        {%- capture errorDebug -%}
+            <b>slides</b> : {{ slides }}<br/>
+            <b>classes</b> : {{ classes }}
+        {%- endcapture -%}
+        {%- include elements/alert.html title='Error in carousel swiper.js' body=errorMsg debug=errorDebug -%}
+    {%- endif -%}
+{%- endif -%}
+
+<div class="swiper-container swiper-shadow">
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            {%- assign items = slide | split: '|' -%}
+            {%- assign image_src = items[0] -%}
+            {%- unless image_src contains '://' -%}
+                {%- assign image_src = image_src | relative_url -%}
+            {%- endunless -%}
+            {%- assign image_src = image_src | escape -%}
+            {%- assign title = items[1] | 'nil' -%}
+            {%- assign description = items[2] | 'nil' -%}
+
+            <div class="swiper-slide">
+                {% if classes[forloop.index0] == 'mockup-laptop' %}
+                <div class="mockup-laptop">
+                    <div class="screen">
+                        <div class="lcd">
+                            <div class="swiper-zoom-container">
+                                <img src="{{ image_src }}">
+                            </div>
+                        </div>
+                        <div class="gloss"></div>
+                        <div class="reflexion"></div>
+                        <div class="highlight one"></div>
+                        <div class="highlight two"></div>
+                    </div>
+                    <div class="keyboard one"></div>
+                    <div class="keyboard two"></div>
+                </div>
+                {% else %}
+                <div class="mockup-normal {% if classes.first %} {{ classes[forloop.index0] }} {% endif %}">
+                    <div class="swiper-zoom-container">
+                        {%- if image_src -%}
+                        <img src="{{ image_src }}">
+                        {%- else -%}
+                        {%- include elements/alert.html title='Error in carousel swiper.js' body='Unable to parse image <b>src</b> !' -%}
+                        {%- endif -%}
+                    </div>
+                </div>
+                {% endif %}
+
+                {%- if title || description -%}
+                <div class="swiper-description">
+                    {%- if title -%}<h4>{{ title }}</h4>{%- endif -%}
+                    {%- if description -%}<div>{{ description }}</div>{%- endif -%}
+                </div>
+                {%- endif -%}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

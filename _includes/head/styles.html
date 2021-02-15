@@ -1,0 +1,42 @@
+<!-- Link all webpack styles declared in front matter -->
+{% comment %} Assign array with webpack entry styles provide from layout or page front matter {% endcomment %}
+{%- assign webpack_entry_styles = '' | split: '' -%}
+{%- if layout.webpack_entry_styles -%}
+    {%- assign webpack_entry_styles = webpack_entry_styles | concat: layout.webpack_entry_styles -%}
+{%- endif -%}
+{%- if page.webpack_entry_styles -%}
+    {%- assign webpack_entry_styles = webpack_entry_styles | concat: page.webpack_entry_styles -%}
+{%- endif -%}
+{%- assign webpack_entry_styles = webpack_entry_styles | uniq -%}
+
+{% comment %} Insert webpack CSS style with contenthash by parsing webpackstats.json {% endcomment %}
+{%- assign webpackstats = site.data.webpackstats -%}
+{%- if webpack_entry_styles.size > 0 -%}
+    {%- for webpack_entry_style in webpack_entry_styles -%}
+        {%- assign asset = webpackstats[webpack_entry_style]['css'] -%}
+        <link rel="stylesheet" href="/assets/build/{{ asset | prepend: site.baseurl}}" />
+    {% endfor %}
+{%- endif -%}
+
+<!-- Link all styles declared in front matter 'styles' of a layout or page -->
+{%- assign styles = '' | split: '' -%}
+{%- if layout.styles -%}
+    {%- assign styles = styles | concat: layout.styles -%}
+{%- endif -%}
+{%- if page.styles -%}
+    {%- assign styles = styles | concat: page.styles -%}
+{%- endif -%}
+{%- assign styles = styles | uniq -%}
+
+{%- if styles.size > 0 -%}
+    {%- for style in styles -%}
+        {%- if style.first -%}
+            <link rel="stylesheet"
+                  href="{{ style.href }}"
+                  {%- if style.integrity -%} integrity="{{ style.integrity }}"{%- endif -%}
+                  {%- if style.crossorigin -%} crossorigin="{{ style.crossorigin }}"{%- endif -%}/>
+        {%- else -%}
+            <link rel="stylesheet" href="{{ style }}" />
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}

@@ -1,0 +1,73 @@
+<!-- List & sort projects -->
+{%- assign idx = 0 -%}
+{% assign sorted = site.projects | sort: 'date' | reverse %}
+
+<div class="projects-as-grid d-none">
+
+    {%- for project in sorted -%}
+        {%- assign projectYear = project.date | date: "%Y" -%}
+        {%- assign projectMonth = project.date | date: "%-m" -%}
+        {%- assign idx = idx | plus:1 -%}
+
+        {%- if projectYear != currentYear -%}
+            {% unless forloop.first %}
+        </div> <!-- Close <div class="row"> -->
+    </div> <!-- Close <div class="blocks-year"> -->
+                {% assign idx = 1 %}
+            {%- endunless -%}
+            {% assign currentYear = projectYear %}
+    <div class="blocks-year">
+        <h1 class="title-with-hr year{% unless forloop.first %} mt-2{%- endunless -%}">{{ currentYear }}</h1>
+            <div class="row projects grid">
+        {% endif %}
+                <div class="project col col-sm-6 col-lg-4 mb-4"
+                     data-index="{{ forloop.index0 }}"
+                     data-project-title="{{ project.title }}"
+                     data-project-type="{{ project.type }}"
+                     data-project-technologies="{{ project.technologies | sort | uniq | join:'|' }}">
+
+                    {% if project.image %}
+                        {% assign project_image = project.image.path | default: project.image %}
+                        {% unless project_image contains '://' %}
+                            {% assign project_image = project_image | relative_url %}
+                        {% endunless %}
+                        {% assign project_image = project_image | escape %}
+                    {% endif %}
+
+                    <div class="card" data-index="{{ forloop.index0 }}">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p class="project-date">
+                                    {%- include functions/i18nFormatMonthDate.html date=project.date -%}
+                                </p>
+                                <h5>{{ project.title }} {%- if project.subtitle -%}
+                                    <span class="project-subtitle"> :: {{ project.subtitle }}</span>
+                                    {%- endif -%}
+                                </h5>
+                            </div>
+                            <div class="card-more-informations">
+                                <p class="text">{{ project.description | strip_html | escape }}</p>
+                                <p class="button">
+                                    <a class="btn btn-primary btn-show-more" href="{{ project.url | relative_url }}"
+                                       role="button">
+                                        Read more
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            {%- include elements/project/projectType.html type=project.type -%}
+                            <p class="project-technologies d-none">
+                                <small class="text-muted">
+                                    <b>Technologies</b> :<br/>
+                                    <span class='badge bg-primary'>{{ project.technologies | join: "</span> <span class='badge bg-primary'>"}}</span>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+
+        </div> <!-- Last close <div class="row"> -->
+    </div> <!-- Last close <div class="blocks-year"> -->
+</div> <!-- End close <div class="projects-as-grid"> -->
