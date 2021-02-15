@@ -4,12 +4,14 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
+const webpack = require('webpack');
+const moment = require('moment');
 
-// const EnvironmentDev = process.env.NODE_ENV !== 'production';
-const EnvironmentDev = false;
+const EnvironmentDev = process.env.NODE_ENV !== 'production';
 const jekyllSource = path.join(__dirname);
 const webpackSource = path.join(jekyllSource, '_webpack');
 const webpackOutput = path.join(jekyllSource, 'assets', 'build');
+const package = require('./package.json');
 
 module.exports = {
     entry: {
@@ -25,17 +27,38 @@ module.exports = {
     plugins: [
         // Clean output directory every launch
         new CleanWebpackPlugin(),
+
         // Extracts CSS into separate files per JS file
         new MiniCssExtractPlugin({
             filename: EnvironmentDev ? '[name].css' : '[name].[contenthash].css',
             chunkFilename: EnvironmentDev ? '[id].css' : '[id].[contenthash].css',
         }),
+
         // Copies individual files or entire directories, which already exist, to the build directory.
         new CopyPlugin({
             patterns: [
                 {from: path.join(webpackSource, 'images'), to: 'images/[path][name].[ext]'},
                 {from: path.join(webpackSource, 'static'), to: 'static/[path][name].[ext]'}
             ],
+        }),
+
+        // Banner Plugin
+        new webpack.BannerPlugin({
+            banner: () => {
+                let lastDateGeneration = moment().format();
+
+                package.lastDateGeneration = lastDateGeneration;
+                fs.writeFileSync(path.join(jekyllSource, '_data', 'build.json'), JSON.stringify({
+                    version: package.version,
+                    environment: (EnvironmentDev) ? 'dev' : 'production',
+                    lastDateGeneration: lastDateGeneration
+                }, null, ' '));
+
+                return EnvironmentDev ? '' : '6i Jekyll v' + package.version + ' (' + package.homepage + ')\n' +
+                    'Copyright 2020-' + moment().year() + ', v20100v (https://github.com/v20100v)\n' +
+                    'Last generation on ' + lastDateGeneration + '.\n' +
+                    'Licensed under MIT.';
+            },
         }),
 
         // Must be the last plugins, in order to write out stats file to build directory.
