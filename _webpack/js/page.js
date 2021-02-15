@@ -1,12 +1,9 @@
-import './main';
 import '../scss/layouts/page.scss';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.min.css';
 
-
 (() => {
     let swipers = [];
-
     /**
      * Init all swipers present in DOM, i.e. a node with a class equals to 'swiper-container'
      */

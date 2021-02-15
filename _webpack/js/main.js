@@ -1,9 +1,6 @@
-// Import Bootstrap's Javascript
 import bootstrap from 'bootstrap';
-import '@fortawesome/fontawesome-free/js/all';
-
-// Any CSS you import will output into a single css file (app.css in this case)
 import '../scss/main.scss';
+import '@fortawesome/fontawesome-free/js/all.min';
 
 (() => {
 
