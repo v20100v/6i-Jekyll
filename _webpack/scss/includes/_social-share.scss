@@ -1,0 +1,35 @@
+#social-share {
+  display: inline-block;
+
+  .effect {
+    &:nth-child(2) {
+      margin-top: 50px;
+    }
+
+    &:nth-child(2n+1) {
+      //background-color: var(--bs-white);
+      h2 {
+        color: var(--bs-primary);
+      }
+    }
+
+    &:nth-child(2n) {
+
+      a {
+        color: var(--white);
+        border-color: var(--bs-white);
+      }
+    }
+  }
+
+  #collapseSocialButtons {
+    a {
+      margin-top: 0.3em !important;
+
+      &:hover {
+        color: lighten($primary, 20%);
+        border-color: lighten($primary, 20%);
+      }
+    }
+  }
+}

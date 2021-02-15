@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 512 512"
+   style="enable-background:new 0 0 512 512;"
+   xml:space="preserve"
+   sodipodi:docname="windows-application.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata83"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs81" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1280"
+   inkscape:window-height="961"
+   id="namedview79"
+   showgrid="false"
+   inkscape:zoom="1.0507812"
+   inkscape:cx="97.375325"
+   inkscape:cy="326.14467"
+   inkscape:window-x="1358"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g46"><inkscape:grid
+     type="xygrid"
+     id="grid122" /></sodipodi:namedview>
+<g
+   transform="translate(-1)"
+   id="g46">
+	<polygon
+   style="fill:#95A5A5;"
+   points="311.376,425.22 257,425.22 202.624,425.22 178.898,503.322 257,503.322 335.102,503.322     "
+   id="polygon2" />
+	<path
+   style="fill:#5E5F62;"
+   d="M508.661,53.717v328.114H5.339V53.717c-0.391-10.017,7.345-18.487,17.356-19.005h468.61   C501.316,35.229,509.052,43.699,508.661,53.717z"
+   id="path4" />
+	<path
+   d="M 468.20877,35.16772 V 236.5123 c 0,63.99462 -54.03377,115.87253 -120.68778,115.87253 H 6.66 V 359.64 c 0,6.70356 5.660625,12.1374 12.642781,12.1374 H 495.96485 c 6.98215,0 12.64278,-5.43384 12.64278,-12.1374 V 52.136567 Z"
+   fill="#544f57"
+   id="path12"
+   style="stroke-width:0.96061" /><g
+   id="g10">
+		<path
+   style="fill:#BDC3C7;"
+   d="M508.661,364.475v50.419c0.391,10.017-7.345,18.487-17.356,19.005H22.695    c-10.011-0.518-17.747-8.988-17.356-19.005v-50.419H508.661z"
+   id="path6" />
+		<path
+   style="fill:#BDC3C7;"
+   d="M352.458,512H161.542c-4.793,0-8.678-3.885-8.678-8.678c0-4.793,3.885-8.678,8.678-8.678h190.915    c4.793,0,8.678,3.885,8.678,8.678C361.136,508.115,357.25,512,352.458,512z"
+   id="path8" />
+	</g>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<g
+   id="g107"
+   transform="matrix(0.91353383,0,0,0.91353383,17.358681,167.96937)"><polygon
+     style="fill:#90c300"
+     points="242.526,40.421 512,0 512,239.832 242.526,239.832 "
+     id="polygon2-3"
+     transform="matrix(0.49442379,0,0,0.56133829,135.75093,-109.73235)" /><polygon
+     style="fill:#f8672c"
+     points="0,75.453 206.596,44.912 206.596,242.526 0,242.526 "
+     id="polygon4"
+     transform="matrix(0.49442379,0,0,0.56133829,135.75093,-109.73235)" /><polygon
+     style="fill:#ffc400"
+     points="242.526,471.579 512,512 512,278.456 242.526,278.456 "
+     id="polygon6"
+     transform="matrix(0.49442379,0,0,0.56133829,135.75093,-109.73235)" /><polygon
+     style="fill:#00b4f2"
+     points="0,436.547 206.596,467.088 206.596,278.456 0,278.456 "
+     id="polygon8"
+     transform="matrix(0.49442379,0,0,0.56133829,135.75093,-109.73235)" /></g><rect
+   style="fill:#544f57;fill-opacity:1;stroke-width:0.853822"
+   id="rect132"
+   width="40.340858"
+   height="32.776432"
+   x="468.29172"
+   y="34.714806"
+   ry="16.388216" /><rect
+   style="fill:#544f57;fill-opacity:1"
+   id="rect961"
+   width="14.80455"
+   height="6.3928785"
+   x="468.29172"
+   y="34.714806"
+   ry="0" /><rect
+   style="fill:#544f57;fill-opacity:1;stroke-width:1.21121"
+   id="rect963"
+   width="20.083941"
+   height="12.085849"
+   x="5.3390002"
+   y="352.38916" /></g>
+<g
+   id="g48">
+</g>
+<g
+   id="g50">
+</g>
+<g
+   id="g52">
+</g>
+<g
+   id="g54">
+</g>
+<g
+   id="g56">
+</g>
+<g
+   id="g58">
+</g>
+<g
+   id="g60">
+</g>
+<g
+   id="g62">
+</g>
+<g
+   id="g64">
+</g>
+<g
+   id="g66">
+</g>
+<g
+   id="g68">
+</g>
+<g
+   id="g70">
+</g>
+<g
+   id="g72">
+</g>
+<g
+   id="g74">
+</g>
+<g
+   id="g76">
+</g>
+</svg>
