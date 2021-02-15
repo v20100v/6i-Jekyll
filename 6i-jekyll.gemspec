@@ -1,17 +1,25 @@
 # frozen_string_literal: true
 
+# Get project metadatas from package.json
+require 'json'
+package = JSON.parse(File.open('package.json').read)
+
 Gem::Specification.new do |spec|
   spec.name          = "6i-jekyll"
-  spec.version       = "1.0.0"
-  spec.authors       = ["v20100v"]
-  spec.email         = ["vb20100bv@gmail.com"]
-  spec.summary       = "A free and open-source Jekyll theme for IT blog & portfolio."
-  spec.homepage      = "https://v20100v.github.io/projects/6i-jekyll"
-  spec.license       = "MIT"
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
+  spec.version       = package["version"]
+  spec.authors       = "v20100v"
+  spec.email         = package["author"]["email"]
+  spec.summary       = package["description"]
+  spec.homepage      = package["homepage"]
+  spec.license       = package["license"]
+
+  spec.extra_rdoc_files = ["README.md"]
+  spec.rdoc_options = ["--title", "6i Jekyll theme", "--main", "README.md"]
+
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(_data|_includes|_layouts|assets|LICENSE|README|_config\.yml)!i) }
 
   spec.post_install_message =  <<~MSG
-                               Thanks for using 6i theme Jekyll !
+                               Thanks for using 6i Jekyll !
                                MSG
 
   spec.metadata["plugin_type"] = "theme"
