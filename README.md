@@ -8,11 +8,12 @@
 
 - IT projects Portfolio, with two types of views (as a grid or as a list) and with filters on projects.
 - Tags in page, and see all the tags will be listed in a summary page.
-- Responsive design for all devices.
+- Fully responsive design for all devices.
+- Improve syntax highlighting with [Prism.js](https://prismjs.com/)     
 - Provides console commands to make easier development using Jekyll and [Webpack](https://webpack.js.org/) with watch & livereload mode ; and the publication on Github pages of a Jekyll site.
 - Support of Yarn in order to manage dependencies for front-end and development tools with in Node.js ecosystem.
 - Support of [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 5 with Sass, in order to customize implementation.
-- Support of [Webpack](https://webpack.js.org/) 4 for bundling Javascript (ES6) and assets of this jekyll site.
+- Support of [Webpack](https://webpack.js.org/) 5 for bundling Javascript (ES6) and assets of this jekyll site.
 - Support of [Font Awesome 5](https://fontawesome.com/) for icon library and toolkit.
 - Pagination generator for Jekyll ([jekyll-paginate-v2](https://github.com/sverrirs/jekyll-paginate-v2)) ;
 - Generate a sitemaps.org compliant sitemap for your site ([jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap)) ;
@@ -33,10 +34,10 @@ With Gem based themes, directories such as the assets, _layouts, _includes, and 
 
 <u>To install :</u>
 
-1. Add the following into your Gemfile : `gem "6i-theme-jekyll"`
+1. Add the following into your Gemfile : `gem "6i-jekyll"`
 2. Fetch and update bundled gems by running : `bundle install`
-3. Set the theme in your project's Jekyll `_config.yml` with : `theme: minimal-mistakes-jekyll`
-4. Then install front-end and development tools dependencies in Node.js ecosystem : `yarn install`. This dependencies are described in `package.json`, and install in `node_modules` folder.
+3. Set the theme in your project's Jekyll `_config.yml` with : `theme: 6i-jekyll`
+4. Then install development tools dependencies in Node.js ecosystem : `yarn install`. This dependencies are described in `package.json`, and install in `node_modules` folder.
    
 <u>To update :</u>
 
@@ -71,6 +72,11 @@ Theme is setup just like a normal Jekyll site, so to test it you wan use native 
 It's boring to launch many commands to do it. We recommend to use only `yarn dev`. One command to rule them all ! 
 
 When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled. To add a custom directory to your theme-gem, please edit the regexp in `6i.gemspec` accordingly.
+
+Finally to push gem
+
+1. Generate gem with `gem build 6i-jekyll.gemspec`
+2. And push it on RubgyGems.org `gem push 6i-jekyll-x.y.z.gem=`
 
 ## Structure theme
 

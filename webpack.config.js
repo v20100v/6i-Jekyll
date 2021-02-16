@@ -1,11 +1,12 @@
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
+
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
-const webpack = require('webpack');
-const moment = require('moment');
 
 const EnvironmentDev = process.env.NODE_ENV !== 'production';
 const jekyllSource = path.join(__dirname);
@@ -47,7 +48,6 @@ module.exports = {
             banner: () => {
                 let lastDateGeneration = moment().format();
 
-                package.lastDateGeneration = lastDateGeneration;
                 fs.writeFileSync(path.join(jekyllSource, '_data', 'build.json'), JSON.stringify({
                     version: package.version,
                     environment: (EnvironmentDev) ? 'dev' : 'production',

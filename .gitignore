@@ -11,10 +11,6 @@ Gemfile.lock
 _asset_bundler_cache
 _site
 
-# Webpack generated files
-assets/build
-_data/webpackstats.json
-
 # Node.js
 node_modules
 npm-debug.log*

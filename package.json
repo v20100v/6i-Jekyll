@@ -36,7 +36,7 @@
   "scripts": {
     "dev": "cross-env-shell NODE_ENV=development JEKYLL_ENV=development npm-run-all --print-label \"dev:clean\" --parallel \"dev:serve\" \"dev:webpack\"",
     "dev:clean": "bundle exec jekyll clean",
-    "dev:serve": "bundle exec jekyll serve --open-url",
+    "dev:serve": "bundle exec jekyll serve --open-url --livereload",
     "dev:webpack": "webpack --mode development --watch",
     "dev:only-jekyll": "cross-env-shell NODE_ENV=development JEKYLL_ENV=development run-s -l \"dev:clean\" \"dev:serve\"",
     "dev:only-webpack": "cross-env-shell NODE_ENV=development run-s -l \"dev:webpack\"",
