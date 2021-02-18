@@ -101,12 +101,12 @@ Finally to push gem
 |    └── favicon.ico            # Default favicon theme
 ├── assets                      # Theme assets
 |  ├── build	                # Webpack output 
-|  └── images		            # Theme images preprocessed
+|  └── images                   # Theme images preprocessed
 ├── node_modules                # Installed Node.js dependencies
 ├── pages                       # Theme pages
 |   ├── 404.md                  # Not found page
-|   ├── blog.md                 # Blog page
-|   ├── projects.md	            # Portfolio page for IT projects
+|   ├── notes.md                # Blog to show post pages
+|   ├── projects.md             # Portfolio page for IT projects
 |   └── tags.md                 # List all tags in webiste with related pages
 ├── .gitignore                  # sample configuration
 ├── _config.yml                 # Sample Jekyll configuration

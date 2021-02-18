@@ -1,12 +1,44 @@
-# 6i Jekyll Theme configuration
+# ==================================================================================================================== #
+#                                                                                                                      #
+#                      ████████   ███           █████          █████                 ████  ████                        #
+#                      ███░░░░███ ░░░           ░░███          ░░███                 ░░███ ░░███                       #
+#                     ░███   ░░░  ████           ░███   ██████  ░███ █████ █████ ████ ░███  ░███                       #
+#                     ░█████████ ░░███           ░███  ███░░███ ░███░░███ ░░███ ░███  ░███  ░███                       #
+#                     ░███░░░░███ ░███           ░███ ░███████  ░██████░   ░███ ░███  ░███  ░███                       #
+#                     ░███   ░███ ░███     ███   ░███ ░███░░░   ░███░░███  ░███ ░███  ░███  ░███                       #
+#                     ░░████████  █████   ░░████████  ░░██████  ████ █████ ░░███████  █████ █████                      #
+#                     ░░░░░░░░  ░░░░░     ░░░░░░░░    ░░░░░░  ░░░░ ░░░░░   ░░░░░███ ░░░░░ ░░░░░                        #
+#                                                                          ███ ░███                                    #
+#                                                                          ░░██████                                    #
+#                                                                                                                      #
+#  6i Jekyll configuration - v1.0.0                                                                                    #
+#                                                                                                                      #
+#  More information :                                                                                                  #
+#   - https://github.com/v20100v/6i-Jekyll#configuration                                                               #
+#   - https://jekyllrb.com/docs/configuration/                                                                         #
+#                                                                                                                      #
+#  Don't forget to restart the server process, when you edit this file.                                                #
+#                                                                                                                      #
+# ==================================================================================================================== #
 
-# -------------------
-# Site configuration
-# -------------------
-encoding: utf-8
-lang: fr-FR # Set the default site language
-# Site's title used as part of the title tag - used in jekyll-seo-tag
-title: '6i-Jekyll'
+
+# ┌────────────────────┐ #
+# │                    │ #
+# │ Site configuration │ #
+# │                    │ #
+# └────────────────────┘ #
+
+title: '6i Jekyll'            # Site's title, used as part of the tile tad in jekyll-seo-tag
+encoding: utf-8               # Site's encoding
+favicon: assets/favicon.ico   # Site's favicon
+lang: en-US                   # Set the default site language
+# url:                        # Base hostname for your site e.g. 'https://6i-jekyll.github.io'
+# baseurl: ''                 # Subpath of your site, e.g. '/mySite/
+
+# URL to a site-wide logo (e.g., /assets/your-company-logo.png) - If you would like the "publisher" property to be
+# present, you must add this field to your site's configuration, during the validation of the structured data by Google
+# Search Console - used in jekyll-seo-tag
+logo: /assets/6i-Jekyll-banner_1500x500.jpg
 # A short description (e.g., A blog dedicated to reviewing cat gifs), used as part of the title tag like Ben's Awesome
 # Site | A blog dedicated to reviewing cat gifs instead of Ben's Awesome Site | Long description about a blog dedicated
 # to reviewing cat gifs that would be used when page.title is not defined - used in jekyll-seo-tag
@@ -15,39 +47,52 @@ tagline: 6i Jekyll theme for blog & IT projects portfolio
 # description, and also as part of the page's title tag if neither page.title nor site.tagline has been defined.
 description: >-
   Ideas, imagine, impulse, innovate, implement & improve
-# URL to a site-wide logo (e.g., /assets/your-company-logo.png) - If you would like the "publisher" property to be
-# present, you must add this field to your site's configuration, during the validation of the structured data by Google
-# Search Console - used in jekyll-seo-tag
-logo: /assets/6i-Jekyll-banner_1500x500.jpg
-# Site url - used in jekyll-seo-tag
-# url: "https://username.github.io/"
-baseurl: ""
-favicon: assets/favicon.ico
 
-# --------------------
-# Theme configuration
-# --------------------
+
+# ┌─────────────────────┐ #
+# │                     │ #
+# │ Theme configuration │ #
+# │                     │ #
+# └─────────────────────┘ #
+
+# -------------
+#  Custom text
+# -------------
+custom_text:
+  footer: "Copyright &copy; <a href='https://github.com/v20100v/6i-Jekyll'>6i</a> - <span class='year'>2021</span>"
+
+
+# ------------------------------------
+#  Jekyll theme with gem-based method
+# ------------------------------------
+# theme: '6i-Jekyll'
+
+# --------------
+#  Resume/CV
+# --------------
+# To create or update your resume, edit '_data/resume.yml' file
+resume:
+  enable: false
+
+# --------------
+#  Social items
+# --------------
 social:
-  # Enable social share button
+  # "Social share" buttons in footer
   share_buttons:
     twitter: true
     linkedin: true
     facebook:
     email: true
 
-  # Enable icons in footer : RSS, email and follow buttons
+  # "Follow me", "email" and "RSS" buttons in footer
   rss: true
   email_address: vb20100bv@gmail.com
-  github: "v20100v"
+  github: 'v20100v'
   twitter:
   facebook:
-  linkedin: "v20100v"
+  linkedin: 'v20100v'
 
-# ---------------------
-# Jekyll configuration
-# ---------------------
-# Marks end of excerpt in posts
-excerpt_separator: <!--more-->
 # ---------------
 #  Web analytics
 # ---------------
@@ -67,8 +112,24 @@ web_analytics:
 #    tracking_id: # the id site of the website you are tracking in Matomo
 
 
+# ┌──────────────────────┐ #
+# │                      │ #
+# │ Jekyll configuration │ #
+# │                      │ #
+# └──────────────────────┘ #
 
-# Disable Rouge syntax highlighter in order to replace it by another engine Prism.js
+# To set all available settings in Jekyll
+# See https://jekyllrb.com/docs/configuration/options/
+
+future: true                      # Publish posts or collection documents with a future date.
+# show_drafts: true               # Process and render draft posts.
+# unpublished: false              # Process and render posts that were marked as unpublished.
+excerpt_separator: <!--more-->    # Default Marks end of excerpt in posts
+
+# --------------------
+#  Syntax highlighter
+# --------------------
+# In 6i, we disable Rouge syntax highlighter in order to replace it by another engine Prism.js
 # Be aware if you used a Jekyll webiste hosted on Github Pages. In this case, we need
 # some hack in configuration to disable Rouge, bu adding folowing lines.
 highlighter: none
