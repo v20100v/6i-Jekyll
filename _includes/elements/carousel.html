@@ -18,7 +18,7 @@
             <b>slides</b> : {{ slides }}<br/>
             <b>classes</b> : {{ classes }}
         {%- endcapture -%}
-        {%- include elements/alert.html title='Error in carousel swiper.js' body=errorMsg debug=errorDebug -%}
+        {%- include functions/alert.html title='Error in carousel swiper.js' body=errorMsg debug=errorDebug -%}
     {%- endif -%}
 {%- endif -%}
 
@@ -57,7 +57,7 @@
                         {%- if image_src -%}
                         <img src="{{ image_src }}">
                         {%- else -%}
-                        {%- include elements/alert.html title='Error in carousel swiper.js' body='Unable to parse image <b>src</b> !' -%}
+                        {%- include functions/alert.html title='Error in carousel swiper.js' body='Unable to parse image <b>src</b> !' -%}
                         {%- endif -%}
                     </div>
                 </div>
