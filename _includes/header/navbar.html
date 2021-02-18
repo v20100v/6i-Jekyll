@@ -9,15 +9,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
+
+                {% assign countProjects =  site.projects | size %}
+                {% if countProjects > 0 %}
                 <li class="nav-item">
                     {% include elements/linkActive.html linktext="Projects" href="/projects/" url="/projects/" %}
                 </li>
+                {% endif %}
+
                 <li class="nav-item">
-                    {% include elements/linkActive.html linktext="Blog" href="/blog/" url="/blog/index.html" %}
+                    {% include elements/linkActive.html linktext="Notes" href="/notes/" url="/notes/index.html" %}
                 </li>
+
+                {% if site.data.resume.enable or site.resume.enable %}
                 <li class="nav-item">
                     {% include elements/linkActive.html linktext="Resume" href="/resume/" url="/resume/" %}
                 </li>
+                {% endif %}
+
                 <li class="nav-item">
                     {% include elements/linkActive.html linktext="Contact" href="/contact/" url="/contact/" %}
                 </li>
