@@ -1,0 +1,26 @@
+{% comment %}
+Matomo (a.k.a. Piwik) Js Tracking Client
+========================================
+To use all the features ok tracker Matomo, you need to use the latest version of the tracking code. To find the
+tracking code for your website, follow the steps below:
+
+- log in to Matomo with your admin or Super User account
+- click on your username in the top right menu, and click Settings to access the administration area
+- click on Tracking Code in the left menu
+- the JavaScript tracking code must put into your pages, just after the opening <body> tag, or within the <head> section
+
+See https://developer.matomo.org/guides/tracking-javascript-guide
+{% endcomment %}
+<!-- Matomo Tracking Client -->
+<script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//{{ site.web_analytics.matomo.url }}/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', {{ site.web_analytics.matomo.tracking_id }}]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>

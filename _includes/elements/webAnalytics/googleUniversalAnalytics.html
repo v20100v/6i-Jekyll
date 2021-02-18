@@ -1,0 +1,17 @@
+{% comment %}
+Google Analytics - Universal Analytics : analytics.js
+=====================================================
+The analytics.js library (also known as "the Google Analytics tag") is a JavaScript library for measuring how users
+interact with your website. The Google Analytics tag should be added near the top of the <head> tag and before any other
+script or CSS tags, and add the property ID of the Google Analytics property you wish to work with.
+
+See https://developers.google.com/analytics/devguides/collection/analyticsjs/
+{% endcomment %}
+<!-- Google - Universal Analytics (analytics.js) -->
+<script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','{{ site.web_analytics.google.universal.tracking_id }}','auto');
+    ga('set', 'anonymizeIp', {{ site.web_analytics.google.universal.anonymize_ip | default: false }});
+    ga('send','pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>

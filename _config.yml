@@ -48,6 +48,25 @@ social:
 # ---------------------
 # Marks end of excerpt in posts
 excerpt_separator: <!--more-->
+# ---------------
+#  Web analytics
+# ---------------
+# Handle tracker web analytics (Google Tags, Google Universal Analtics or Matomo)
+# Trackers is enable only in production environment, or if 'enable_in_dev' is true.
+web_analytics:
+  enable_in_dev: false
+  google:
+    gtag:
+      tracking_id: UA-xxxxxxxxx1
+      anonymize_ip: true
+    universal:
+      tracking_id: UA-xxxxxxxxx2
+      anonymize_ip: true
+#  matomo:
+#    url: # your server Matomo URL
+#    tracking_id: # the id site of the website you are tracking in Matomo
+
+
 
 # Disable Rouge syntax highlighter in order to replace it by another engine Prism.js
 # Be aware if you used a Jekyll webiste hosted on Github Pages. In this case, we need
@@ -58,9 +77,9 @@ kramdown:
   syntax_highlighter_opts:
     disable: true
 
-# ---------------
-# Jekyll plugins
-# ---------------
+# ----------------
+#  Jekyll plugins
+# ----------------
 plugins:
   - jekyll-sitemap
   - jekyll-feed
@@ -69,10 +88,9 @@ plugins:
   - jekyll-email-protect
   - jekyll-include-cache
 
-# ------------------------
-# Exclude from processing
-# ------------------------
-# The following items will not be processed, by default.
+# -------------------------
+#  Exclude from processing
+# -------------------------
 exclude:
   - './*.js'
   - '*.gemspec'
@@ -90,17 +108,17 @@ exclude:
   - package-lock.json
   - yarn.lock
 
-# -------------------------
-# Custom Jekyll collection
-# -------------------------
+# --------------------------
+#  Custom Jekyll collection
+# --------------------------
 collections:
   projects:
     output: true
-    permalink: /:collection/:name
+    permalink: /:collection/:path
 
-# ------------------------------------
-# Front matter defaults configuration
-# ------------------------------------
+# -------------------------------------
+#  Front matter defaults configuration
+# -------------------------------------
 defaults:
   - scope:
       path: ""
@@ -113,9 +131,9 @@ defaults:
     values:
       layout: "project"
 
-# --------------------------
-# Plugin jekyll-paginate-v2
-# --------------------------
+# ---------------------------
+#  Plugin jekyll-paginate-v2
+# ---------------------------
 # See https://github.com/sverrirs/jekyll-paginate-v2
 pagination:
   enabled: true
@@ -125,9 +143,9 @@ pagination:
   sort_reverse: true
   permalink: '/page/:num/'
 
-# -------------------------------
-# Plugin jekyll-feed (Atom feed)
-# -------------------------------
+# --------------------------------
+#  Plugin jekyll-feed (Atom feed)
+# --------------------------------
 # See https://github.com/jekyll/jekyll-feed
 # To generate an Atom feed at /feed.xml, just add {% feed_meta %} into your head tag.
 rss:
@@ -135,23 +153,23 @@ rss:
 feed:
   posts_limit: 20
 
-# ------------------------------------------------------------
-# Plugin jekyll-sitemap (Generate sitemap for search engines)
-# ------------------------------------------------------------
+# -------------------------------------------------------------
+#  Plugin jekyll-sitemap (Generate sitemap for search engines)
+# -------------------------------------------------------------
 # See https://github.com/jekyll/jekyll-sitemap
 # Sitemaps are an easy way to inform search engines about pages on their sites that are available for crawling.
 # This plugin is used to silently generate a sitemaps.org compliant sitemap. If you would like to exclude specific
 # pages/posts from the sitemap, just set the sitemap flag to false in the front matter for the page/post.
 
-# -----------------------------------------------
-# Plugin jekyll-email-protect (Protection email)
-# -----------------------------------------------
+# ------------------------------------------------
+#  Plugin jekyll-email-protect (Protection email)
+# ------------------------------------------------
 # See https://github.com/vwochnik/jekyll-email-protect
 # Plugin to email protection liquid filter which can be used to obfuscate mailto: links to protect from spam bots.
 # In your markup, simply use the encode_email liquid filter made available through this plugin
 # <a href="mailto:{{ site.email | encode_email }}" title="Contact me">Contact me</a>
 
-# ----------------------------------------------------------------------------------
-# Plugin jekyll-seo-tag (Add metadatas tags for search engines and social networks)
-# ----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
+#  Plugin jekyll-seo-tag (Add metadatas tags for search engines and social networks)
+# -----------------------------------------------------------------------------------
 # See https://github.com/jekyll/jekyll-seo-tag

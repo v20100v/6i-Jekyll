@@ -1,0 +1,27 @@
+{% comment %}
+Google Analytics - Global site tag : gtag.js
+============================================
+The global site tag (gtag.js) is a JavaScript tagging framework and API that allows you to send event data to Google
+Analytics, Google Ads, and Google Marketing Platform. This page describes how to use gtag.js to configure a site for
+Google Analytics. For general (i.e. non-product specific) gtag.js documentation, read the gtag.js developer guide.
+
+To install the global site tag, copy the following code and paste it immediately after the <head> tag on every page of
+your site. Replace GA_MEASUREMENT_ID with the ID of the Google Analytics property to which you want to send data. You
+need only one global snippet per page.
+
+See https://developers.google.com/analytics/devguides/collection/gtagjs
+
+IP anonymization with gtag.js
+=============================
+In some cases, you might need to anonymize the IP addresses of hits sent to Google Analytics. To anonymize IP addresses
+for all events, update the config for your property by setting the value of the anonymize_ip parameter to true:
+gtag('config', '<GA_TRACKING_ID>', { 'anonymize_ip': true });
+{% endcomment %}
+<!-- Google - Global site tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.web_analytics.google.gtag.tracking_id }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.web_analytics.google.gtag.tracking_id }}', { 'anonymize_ip': {{ site.web_analytics.google.gtag.anonymize_ip | default: false }}});
+</script>

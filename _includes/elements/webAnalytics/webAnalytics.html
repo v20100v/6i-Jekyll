@@ -1,0 +1,15 @@
+{% if jekyll.environment == 'production' or site.web_analytics.enable_in_dev == true %}
+
+    {% if site.web_analytics.google.gtag.tracking_id %}
+        {% include elements/webAnalytics/googleGtag.html %}
+    {% endif %}
+
+    {% if site.web_analytics.google.universal.tracking_id %}
+        {% include elements/webAnalytics/googleUniversalAnalytics.html %}
+    {% endif %}
+
+    {% if site.web_analytics.matomo.tracking_id %}
+        {% include elements/webAnalytics/matomoTrackingClient.html %}
+    {% endif %}
+
+{% endif %}
