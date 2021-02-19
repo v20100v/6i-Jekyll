@@ -1,8 +1,9 @@
 ---
 layout: post
-title: 'Feature : sample post with an excerpt'
-tags: [Jekyll]
+title: "Write an excerpt into a Jekyll post"
+tags: [6i-Jekyll]
 author: v20100v
+categories: dev
 ---
 
 > A sample post with a title and an excerpt

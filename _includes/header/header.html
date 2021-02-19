@@ -13,8 +13,22 @@
         {% endif %}
 
         <h1 class="active">
-            <span>{{ page.title }}</span>
+            {{ page.title }}
+            {% if layout.subtitle or page.subtitle %}
+                <span class="subtitle">{{ layout.subtitle | default: page.subtitle }}</span>
+            {% endif %}
         </h1>
+
+        {% if layout.tagline or page.tagline %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-xl-12 mx-auto">
+                        <h2 class="tagline">{{ layout.tagline | default: page.tagline }}</h2>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
         {% if page.id %}
             <p class="post-date">
                 {%- include functions/i18nFormatDayDate.html date=page.date -%}
