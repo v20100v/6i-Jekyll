@@ -1,12 +1,11 @@
 {
-  "name": "@6i/6i-jekyll-theme",
+  "name": "@6i/6i-jekyll",
   "version": "1.0.0",
   "description": "A free and open-source Jekyll theme",
-  "homepage": "https://v20100v.github.io/projects/6i-theme-jekyll",
-  "repository": "https://github.com/v20100v/6i-jekyll-theme",
-  "author": "v20100v <7567933+v20100v@users.noreply.github.com>",
-  "license": "Private",
-  "private": true,
+  "homepage": "https://github.com/v20100v/6i-Jekyll",
+  "repository": "https://github.com/v20100v/6i-Jekyll",
+  "author": "vb20100bv@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -34,16 +33,15 @@
     "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "dev": "cross-env-shell NODE_ENV=development JEKYLL_ENV=development npm-run-all --print-label \"dev:clean\" --parallel \"dev:serve\" \"dev:webpack\"",
-    "dev:clean": "bundle exec jekyll clean",
-    "dev:serve": "bundle exec jekyll serve --open-url --livereload",
-    "dev:webpack": "webpack --mode development --watch",
-    "dev:only-jekyll": "cross-env-shell NODE_ENV=development JEKYLL_ENV=development run-s -l \"dev:clean\" \"dev:serve\"",
-    "dev:only-webpack": "cross-env-shell NODE_ENV=development run-s -l \"dev:webpack\"",
-    "build": "cross-env-shell NODE_ENV=production JEKYLL_ENV=production run-s -l \"build:webpack\" \"build:jekyll\"",
-    "build:jekyll": "cross-env-shell NODE_ENV=production JEKYLL_ENV=production bundle exec jekyll build",
-    "build:webpack": "cross-env-shell NODE_ENV=production webpack --mode production",
-    "publish": "run-s -l \"build\" \"publish:push-github-pages\"",
+    "dev": "cross-env-shell NODE_ENV=development JEKYLL_ENV=development npm-run-all --print-label \"jekyll:clean\" --parallel --race \"jekyll:serve\" \"webpack:watch\"",
+    "build": "cross-env-shell NODE_ENV=production JEKYLL_ENV=production run-s -l \"webpack:build\" \"jekyll:build\" \"gem:build\"",
+    "publish": "run-s -l \"build\" \"push-github-pages\"",
+    "jekyll:clean": "bundle exec jekyll clean",
+    "jekyll:serve": "bundle exec jekyll serve --open-url --livereload --port 20100",
+    "jekyll:build": "cross-env-shell NODE_ENV=production JEKYLL_ENV=production bundle exec jekyll build",
+    "webpack:watch": "cross-env-shell NODE_ENV=development webpack --mode development --watch",
+    "webpack:build": "cross-env-shell NODE_ENV=production webpack --mode production",
+    "gem:build": "cross-env-shell JEKYLL_ENV=production bundle exec gem build 6i-jekyll.gemspec",
     "push-github-pages": "gh-pages -d /_site"
   }
 }

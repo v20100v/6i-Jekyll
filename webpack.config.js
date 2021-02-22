@@ -90,5 +90,17 @@ module.exports = {
                 ],
             }
         ]
-    }
+    },
+    watchOptions: {
+        ignored: [
+            '**/_data',
+            '**/_doc',
+            '**/_drafts',
+            '**/_posts',
+            '**/_projects',
+            '**/node_modules',
+            '**/doc',
+            '**/test',
+        ]
+    },
 };
