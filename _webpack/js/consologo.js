@@ -1,29 +1,34 @@
-let cssTitle = 'font-size:30px;color:#007bff;';
-let cssSubtitle = 'font-style:italic;color:#007bff;';
+const build = require("../../_data/build.json");
+
+let cssTitle = 'font-size:30px;color:#6f42c1;';
+let cssSubtitle = 'font-style:italic;color:#6f42c1;';
 let cssNormal = 'font-style:normal;';
 let cssRedEye = 'color:#d9534f;';
 let cssBlue = 'color:blue;';
 
 let consologo = `
-%c6i 
-%cA Jekyll theme 
+%c6i-Jekyll 
+%cA Jekyll theme for IT blog & portfolio.
+%chttps://github.com/v20100v/6i-Jekyll
 %c
        .-""-.
-      /[] _ _\\                                         
-     _│_%c●%c_LII│_                                         
-    / │ %c====%c │ \\                                        
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾    
-    Copyright © ` + new Date().getFullYear() +`,                                   
-                                                        
-    Version : 1.0.0-alpha                               
-    Build   : 2020.02.15 16:38:22                       
-    Contact : vb20100bv@gmail.com
+      /[] _ _\\
+     _│_%c●%c_LII│_
+    / │ %c====%c │ \\
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾    
+  Copyright © ` + new Date().getFullYear() + `,                                   
+                                                      
+  Version : ` + build.version + `                          
+  Build   : ` + build.lastDateGeneration + `                       
+  Env     : ` + build.environment + `
+  Contact : vb20100bv@gmail.com
     
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾`;
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾`;
 
 console.log(
     consologo,
     cssTitle,
+    cssSubtitle,
     cssSubtitle,
     cssNormal,
     cssRedEye,
