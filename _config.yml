@@ -55,22 +55,18 @@ description: >-
 # │                     │ #
 # └─────────────────────┘ #
 
+# theme: '6i-Jekyll' # Jekyll theme with gem-based method
+
 # -------------
 #  Custom text
 # -------------
 custom_text:
   footer: "Copyright &copy; <a href='https://github.com/v20100v/6i-Jekyll'>6i</a> - <span class='year'>2021</span>"
 
-
-# ------------------------------------
-#  Jekyll theme with gem-based method
-# ------------------------------------
-# theme: '6i-Jekyll'
-
 # --------------
 #  Resume/CV
 # --------------
-# To create or update your resume, edit '_data/resume.yml' file
+# To write your resume (profil, experiences, degrees, publications...) fill the file '_data/resume.yml'
 resume:
   enable: false
 
@@ -168,6 +164,8 @@ exclude:
   - package.json
   - package-lock.json
   - yarn.lock
+  - doc/
+  - test/
 
 # --------------------------
 #  Custom Jekyll collection

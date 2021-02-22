@@ -5,18 +5,23 @@ require 'json'
 package = JSON.parse(File.open('package.json').read)
 
 Gem::Specification.new do |spec|
-  spec.name          = "6i-jekyll"
-  spec.version       = package["version"]
-  spec.authors       = "v20100v"
-  spec.email         = package["author"]["email"]
-  spec.summary       = package["description"]
-  spec.homepage      = package["homepage"]
-  spec.license       = package["license"]
+  spec.name     = "6i-jekyll"
+  spec.version  = package["version"]
+  spec.authors  = "v20100v"
+  spec.email    = package["author"]["email"]
+  spec.summary  = package["description"]
+  spec.homepage = package["homepage"]
+  spec.license  = "MIT"
 
   spec.extra_rdoc_files = ["README.md"]
   spec.rdoc_options = ["--title", "6i Jekyll theme", "--main", "README.md"]
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(_data|_includes|_layouts|assets|LICENSE|README|_config\.yml)!i) }
+  # Files to include in this gem
+  spec.files = `git ls-files -z`.split("\x0").select do |f|
+    f.match(%r!^(_(data|includes|layouts|webpack)|assets|pages|LICENSE|README|CHANGELOG|_config\.yml|\.no-jekyll|index.html|package.json|postcss.config.js|webpack.config.js)!i)
+  end
+  # The folder asset/builds is not git tracked, so we force to add it here.
+  spec.files += Dir['assets/**/*']
 
   spec.post_install_message =  <<~MSG
                                Thanks for using 6i Jekyll !
@@ -31,4 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.7"
   spec.add_runtime_dependency "jekyll-email-protect", "~> 1.1"
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2"
+  spec.add_runtime_dependency "jekyll-data", "~> 1.1"
+
+  spec.add_development_dependency "bundler", "~> 2.1"
 end
