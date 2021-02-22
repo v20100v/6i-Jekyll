@@ -1,18 +1,18 @@
 ---
 layout: page
-webpack_entry_scripts: ['main','page']
-webpack_entry_styles: ['main','page']
+webpack_entry_scripts: ['main', 'page']
+webpack_entry_styles: ['main', 'page']
 disable_header_title: true
 ---
 
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-12 col-xl-10 mx-auto">
-            <h1 class="title-with-hr">Recent Posts</h1>
+        <div class="col-12 col-xl-12 mx-auto">
+            <h1 class="title-with-hr">Recent notes</h1>
 
-            <ul>
-            {% for post in site.posts offset:0 limit:5 %}
+            <ul class="recent-notes">
+            {% for post in site.posts offset:0 limit:10 %}
                 <li class="d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
                     <span class="post-title mr-2">
                         {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -22,12 +22,8 @@ disable_header_title: true
                     </span>
                 </li>
             {% endfor %}
+                <li class="d-flex flex-column flex-lg-row flex-xl-row justify-content-between mt-3"><a href="/notes">View notes</a></li>
             </ul>
-
-            <p>
-                <a href="/blog">View all posts</a>
-            </p>
-
         </div>
     </div>
 </div>

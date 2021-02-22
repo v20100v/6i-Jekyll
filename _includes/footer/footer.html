@@ -45,6 +45,8 @@
                         </li>
                         {% endif %}
 
+                        {% include footer/followMe.html %}
+
                         {% if site.social.email_address %}
                         <li class="list-inline-item">
                             <a href="mailto:{{ site.social.email_address }}" title="Write me an email">
@@ -56,12 +58,11 @@
                         </li>
                         {% endif %}
 
-                        {% include footer/followMe.html %}
                         {% include footer/socialShare.html %}
                     </ul>
 
                     <p class="copyright text-muted text-center mt-2">
-                        Copyright &copy; 2020 6i
+                        {{ site.custom_text.footer | default: "Copyright &copy; <a href='https://github.com/v20100v/6i-Jekyll'>6i</a> - <span class='year'>2021</span>" }}</p>
                     </p>
                 </div>
             </div>

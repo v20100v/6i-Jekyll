@@ -2,6 +2,8 @@ header {
   color: var(--bs-white);
 
   &#main-header {
+    margin-bottom:1em;
+
     h1 {
       margin: 0;
       padding: 1em;
@@ -25,7 +27,7 @@ header {
   .navbar {
 
     &#main-navbar {
-      padding:1em 4em;
+      padding: 1em 4em;
     }
 
     li {
@@ -39,9 +41,8 @@ header {
     .navbar-nav {
       > li.nav-item {
         > a {
-          font-weight: 700;
+          font-weight: 500;
           letter-spacing: 1px;
-          text-transform: uppercase;
         }
       }
     }

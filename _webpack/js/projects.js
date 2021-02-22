@@ -1,10 +1,9 @@
-import '../scss/layouts/projects.scss';
 import Masonry from 'masonry-layout';
 
-import * as Utils from './utils';
+import '../scss/layouts/projects.scss';
+import * as Dom from "./utils/Dom";
 
-Utils.Dom.ready(() => {
-    console.log('[6i-Jekyll] Dom ready !');
+Dom.ready(() => {
 
     // Persist in high scope all masonries (one masonry by year)
     let masonries = [];
@@ -376,7 +375,7 @@ Utils.Dom.ready(() => {
      * Load user preferences in projects view page (show technologies, show as list or grid)
      */
     const _loadUserPreferences = () => {
-        Utils.Dom.fontawesomeReady(() => {
+        Dom.fontawesomeReady(() => {
             if (window.localStorage) {
                 let userPreferences = {};
                 userPreferences.showTechnologies = window.localStorage.getItem('userPreferences.showTechnologies');
@@ -417,5 +416,3 @@ Utils.Dom.ready(() => {
         _handleFilters();
     })();
 });
-
-

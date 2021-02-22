@@ -1,34 +1,13 @@
-@import "_webpack/scss/main";
+@import "../base/variables";
+@import "../base/mixins";
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+
 @import "../includes/navigation";
 @import "../includes/social-share";
 @import "../includes/carrousel";
 @import "../includes/mockup";
-
-.title-with-hr {
-  font-size: 2em;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-variant-caps: small-caps;
-}
-
-.title-with-hr:before, .title-with-hr:after {
-  background-color: $gray-400;
-  content: '\a0';
-  flex-grow: 1;
-  height: 1px;
-  position: relative;
-  top: 0.6em;
-}
-
-.title-with-hr:before {
-  margin-right: 15px;
-}
-
-.title-with-hr:after {
-  margin-left: 15px;
-}
 
 blockquote {
   background: $gray-300;
@@ -87,3 +66,20 @@ samp {
   }
 }
 
+.recent-notes {
+  margin-top: 0.5em;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, 'lg')) {
+  .recent-notes {
+    li {
+      padding-bottom: 0.5em;
+      margin-bottom: 0.5em;
+      border-bottom: 1px dashed var(--bs-gray);
+    }
+
+    li:last-child, li:nth-last-child(2) {
+      border: none;
+    }
+  }
+}

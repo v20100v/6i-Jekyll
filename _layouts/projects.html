@@ -1,15 +1,15 @@
 ---
 layout: page
 permalink: /projects/
-webpack_entry_scripts: ['main','projects']
-webpack_entry_styles: ['main','projects']
+webpack_entry_scripts: ['main', 'projects']
+webpack_entry_styles: ['main', 'projects']
 ---
 
 <!-- Iterate through projects collection -->
 {% assign technologies =  site.projects | map: 'technologies' | join: ','  | split: ',' | uniq | sort %}
 {% assign types =  site.projects | map: 'type' | join: ','  | split: ',' | uniq | sort %}
 
-<div class="container">
+<div class="container container-projects">
     <div class="row">
         <div class="col-12 col-xl-12 mx-auto">
 

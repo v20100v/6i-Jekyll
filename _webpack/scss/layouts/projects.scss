@@ -1,4 +1,9 @@
-@import "_webpack/scss/main";
+@import "../base/variables";
+@import "../base/mixins";
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+
 @import "../includes/navigation";
 @import "../includes/social-share";
 
@@ -42,9 +47,7 @@
   }
 }
 
-
 .projects {
-
   .card {
     position: relative;
     overflow: hidden;
@@ -168,7 +171,9 @@
   .project-type-title {
     display: none;
   }
+}
 
-
+.container-projects {
+  margin-top: -2em;
 }
 

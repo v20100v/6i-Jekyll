@@ -1,9 +1,12 @@
-import '../scss/layouts/page.scss';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.min.css';
 
-(() => {
+import '../scss/layouts/page.scss';
+import * as Dom from "./utils/Dom";
+
+Dom.ready(() => {
     let swipers = [];
+
     /**
      * Init all swipers present in DOM, i.e. a node with a class equals to 'swiper-container'
      */
@@ -41,5 +44,4 @@ import 'swiper/swiper-bundle.min.css';
     (function initView() {
         _initSwiper();
     })();
-
-})();
+});
