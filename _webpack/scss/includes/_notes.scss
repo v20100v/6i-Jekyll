@@ -1,0 +1,68 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+
+.notes-list {
+  margin-top: 40px;
+  margin-bottom: 0px;
+  padding-left: 0;
+  padding-right: 0;
+
+
+  li.note-stub {
+    list-style: none;
+    padding: 1em 2em;
+    border-bottom: 1px dashed var(--bs-gray);
+    margin: 0;
+    @include transition-all;
+
+    a {
+      text-decoration: none;
+      margin-right: 20px;
+
+      .note-metadata {
+        color: rgba(50, 50, 50, 0.7);
+        font-size: 0.9em;
+        letter-spacing: 0.1em;
+        margin: 0.5rem 0;
+
+        .note-date {
+          text-transform: uppercase;
+        }
+      }
+
+      .note-excerpt {
+        color: var(--bs-dark);
+      }
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  li.note-stub:last-child {
+    border: none;
+    margin-bottom: 0;
+  }
+
+  li:hover {
+    background-color: darken($white, 10%);
+  }
+
+  + .pager {
+    margin-top: 40px;
+    margin-left: 2em;
+    text-align: center;
+  }
+
+  + .view-more {
+    margin-top: 20px;
+    text-align: left;
+  }
+
+
+}

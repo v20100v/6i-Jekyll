@@ -11,19 +11,30 @@ disable_header_title: true
         <div class="col-12 col-xl-12 mx-auto">
             <h1 class="title-with-hr">Recent notes</h1>
 
-            <ul class="recent-notes">
-            {% for post in site.posts offset:0 limit:10 %}
-                <li class="d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
-                    <span class="post-title mr-2">
-                        {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </span>
-                    <span class="post-tags mb-2 mb-lg-0 mb-xl-0">
+            <ul class="recent-notes notes-list">
+            {% for post in site.posts offset:0 limit:3 %}
+                <li class="note-stub d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
+
+                    <a href="{{ post.url | relative_url }}" title="Go to post detail" class="flex-grow-1">
+                        <h4 class="note-title">{{ post.title }}</h4>
+                        <div class="note-metadata">
+                            <span class="note-date">
+                                <i class="fas fa-calendar-day"></i>&nbsp; {%- include functions/i18nFormatDayDate.html date=post.date -%}
+                            </span>
+                            {%- include functions/calcReadingTime.html content=post.content -%}
+                        </div>
+                    </a>
+
+                    <span class="note-tags ml-4 text-lg-end text-xl-end text-xxl-end">
                         <span class='badge bg-primary badge-tag'>{{ post.tags | join: "</span> <span class='badge bg-primary badge-tag'>"}}</span>
                     </span>
                 </li>
             {% endfor %}
-                <li class="d-flex flex-column flex-lg-row flex-xl-row justify-content-between mt-3"><a href="/notes">View notes</a></li>
             </ul>
+
+            <div class="pager clearfix view-more">
+                <a href="/notes">View more notes</a>
+            </div>
         </div>
     </div>
 </div>

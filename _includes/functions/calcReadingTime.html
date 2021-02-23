@@ -1,0 +1,23 @@
+{%- assign words = include.content | number_of_words:"auto" -%}
+{%- assign readingTime = words | divided_by: site.calc_reading_time.words_by_minutes -%}
+
+{%- if site.calc_reading_time.enable -%}
+&nbsp;|&nbsp;
+<span class="reading-time" title="Estimated read time">
+  <i class="far fa-clock"></i>&nbsp;
+  {%- if words < (site.calc_reading_time.words_by_minutes | times: 2) -%}
+    ~1 min
+  {%- elsif readingTime >= site.calc_reading_time.tldr.max_time -%}
+    {{ site.calc_reading_time.tldr.message }}
+  {%- else -%}
+    {%- assign hours = readingTime | divided_by:60 -%}
+    {%- assign minutes = readingTime | modulo:60 -%}
+
+    {%- if hours >= 1 -%}
+      ~{{ hours }}h:{{ minutes }}mins
+    {%- else -%}
+      ~{{ readingTime}} mins
+    {%- endif -%}
+  {%- endif -%}
+</span>
+{%- endif -%}

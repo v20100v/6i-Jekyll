@@ -127,6 +127,8 @@
     border-image-source: linear-gradient(to left, var(--bs-white), var(--bs-primary));
     padding-bottom: 10px;
   }
+
+  .project-subtitle {}
 }
 
 .project-type, .project-technologies {
@@ -174,6 +176,6 @@
 }
 
 .container-projects {
-  margin-top: -2em;
+  margin-top: -1em;
 }
 

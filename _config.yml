@@ -64,13 +64,6 @@ custom_text:
   footer: "Copyright &copy; <a href='https://github.com/v20100v/6i-Jekyll'>6i</a> - <span class='year'>2021</span>"
 
 # --------------
-#  Resume/CV
-# --------------
-# To write your resume (profil, experiences, degrees, publications...) fill the file '_data/resume.yml'
-resume:
-  enable: false
-
-# --------------
 #  Social items
 # --------------
 social:
@@ -93,7 +86,7 @@ social:
 #  Web analytics
 # ---------------
 # Handle tracker web analytics (Google Tags, Google Universal Analtics or Matomo)
-# Trackers is enable only in production environment, or if 'enable_in_dev' is true.
+# Trackers is enable only in production environment when Jekyll site is built, or if 'enable_in_dev' is true.
 web_analytics:
   enable_in_dev: false
   google:
@@ -106,6 +99,25 @@ web_analytics:
 #  matomo:
 #    url: # your server Matomo URL
 #    tracking_id: # the id site of the website you are tracking in Matomo
+
+# -----------------------------
+#  Calculation of reading time
+# -----------------------------
+calc_reading_time:
+  enable: true            # Enable/ disable the calculation of reading time of an article (Jekyll post)
+  words_by_minutes: 180   # Set the number of words read per minute on average
+  tldr:
+    enable: true          # If max_time is exceeded, add a TL;DR message
+    max_time: 360         # To be set in minutes (360 min = 6h)
+    message: 'TL;DR'      # To customize the TL;DR message
+
+# --------------
+#  Resume/CV
+# --------------
+# To write your resume (profil, experiences, degrees, publications...) fill the file '_data/resume.yml'
+resume:
+  enable: false           # Enable/ disable it
+  dowload_file: './assets/resume/myCV.pdf'
 
 
 # ┌──────────────────────┐ #

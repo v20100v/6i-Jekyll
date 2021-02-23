@@ -1,40 +1,46 @@
 ---
 layout: page
+disable_header_title: false
 ---
 
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-12 col-xl-10 mx-auto">
+        <div class="col-12 col-xl-12 mx-auto">
 
             <!-- Pagination list posts -->
+            <ul class="notes-list">
             {% for post in paginator.posts %}
-            <div class="post-preview">
-                <a href="{{ post.url | relative_url }}">
-                    <h2 class="post-title">
-                        {{ post.title }}
-                    </h2>
-                </a>
-                <p class="post-excerpt">
-                    {{ post.excerpt | strip_html | escape }}
-                </p>
-                <p class="post-date">
-                    {%- include functions/i18nFormatDayDate.html date=post.date -%}
-                </p>
-            </div>
-            {% endfor %}
+                <li class="note-stub d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
 
-            <hr>
+                    <a href="{{ post.url | relative_url }}" title="Go to post detail" class="flex-grow-1">
+                        <h4 class="note-title">{{ post.title }}</h4>
+                        <div class="note-metadata">
+                            <span class="note-date">
+                                <i class="fas fa-calendar-day"></i>&nbsp; {%- include functions/i18nFormatDayDate.html date=post.date -%}
+                            </span>
+                            {%- include functions/calcReadingTime.html content=post.content -%}
+                        </div>
+                        <div class="note-excerpt">
+                            {{ post.excerpt | strip_html | escape | strip }}
+                        </div>
+                    </a>
+
+                    <span class="note-tags ml-4 text-lg-end text-xl-end text-xxl-end">
+                        <span class='badge bg-primary badge-tag'>{{ post.tags | join: "</span> <span class='badge bg-primary badge-tag'>"}}</span>
+                    </span>
+                </li>
+            {% endfor %}
+            </ul>
 
             <!-- Pager -->
-
             {% if paginator.total_pages > 1 %}
             <div class="pager clearfix">
                 {% if paginator.previous_page %}
-                    <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+                    <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer notes</a>
                 {% endif %}
                 {% if paginator.next_page %}
-                    <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+                    <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older notes &rarr;</a>
                 {% endif %}
             </div>
             {% endif %}

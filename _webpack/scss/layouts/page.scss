@@ -8,6 +8,7 @@
 @import "../includes/social-share";
 @import "../includes/carrousel";
 @import "../includes/mockup";
+@import "../includes/notes";
 
 blockquote {
   background: $gray-300;
@@ -67,19 +68,9 @@ samp {
 }
 
 .recent-notes {
-  margin-top: 0.5em;
+  margin-top: 2em;
 }
 
-@media screen and (max-width: map-get($grid-breakpoints, 'lg')) {
-  .recent-notes {
-    li {
-      padding-bottom: 0.5em;
-      margin-bottom: 0.5em;
-      border-bottom: 1px dashed var(--bs-gray);
-    }
-
-    li:last-child, li:nth-last-child(2) {
-      border: none;
-    }
-  }
+.post-preview {
+  margin-top: 40px;
 }
