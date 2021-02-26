@@ -2,13 +2,27 @@ header {
   color: var(--bs-white);
 
   &#main-header {
-    margin-bottom:1em;
+    margin-bottom: 1em;
 
     h1 {
       margin: 0;
       padding: 1em;
       text-align: center;
       text-shadow: 2px 4px 0 rgb(0 0 0 / 40%);
+
+      @media screen and (max-height: map-get($grid-breakpoints, 'md')) {
+        display: none;
+        + svg.diagonal {
+          height: 45px;
+        }
+      }
+
+      @include media-breakpoint-down(sm) {
+        display: none;
+        + svg.diagonal {
+          height: 45px;
+        }
+      }
     }
 
     svg.diagonal {

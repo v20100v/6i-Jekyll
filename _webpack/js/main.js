@@ -5,7 +5,6 @@ import '../scss/main.scss';
 import * as Utils from './utils';
 
 Utils.Dom.ready(() => {
-    console.log('[6i-Jekyll] Dom is ready !!!');
 
     /**
      * In tartiflette we trust !

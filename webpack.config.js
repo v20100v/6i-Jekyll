@@ -19,7 +19,8 @@ module.exports = {
         main: path.join(webpackSource, 'js', 'main.js'),
         consologo: path.join(webpackSource, 'js', 'consologo.js'),
         projects: path.join(webpackSource, 'js', 'projects.js'),
-        page: path.join(webpackSource, 'js', 'page.js')
+        page: path.join(webpackSource, 'js', 'page.js'),
+        contact: path.join(webpackSource, 'js', 'contact.js')
     },
     output: {
         filename: EnvironmentDev ? '[name].bundle.js' : '[name].[contenthash].bundle.js',

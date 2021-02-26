@@ -1,0 +1,51 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.contact {
+  background: lighten($primary, 30%);
+  padding: 2em 4em 24px;
+  text-align: center;
+  margin-top: 1em;
+
+  @include transition-all;
+
+  .row {
+    text-align: right;
+    margin-bottom: 0.5em;
+  }
+
+  label {
+    color: rgba(50, 50, 50, 0.7);
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+  }
+
+  button {
+    margin-top: 1em;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 1em 2em 24px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0.5em 2em;
+    .row {
+      text-align: left;
+    }
+  }
+}
+
+.contact-footer {
+  background: lighten($primary, 30%);
+  height: 0px;
+  margin-bottom: -3em;
+  margin-top: 0em;
+}
+
+#main-footer {
+  margin-top: 0 !important;
+}

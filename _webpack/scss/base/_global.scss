@@ -79,11 +79,14 @@ h4 {
 }
 
 .tagline {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  margin: 0 6% 1em;
+  margin: 0 6% 0.5em;
   text-align: center;
   text-shadow: 2px 4px 0 rgb(0 0 0 / 40%);
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
 }
 
 ul {

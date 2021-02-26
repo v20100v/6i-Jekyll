@@ -55,7 +55,23 @@ const fontawesomeReady = (callback) => {
     }, 50)
 };
 
+/**
+ * Handlers to call when Windows DOM is resize, with smooth execution. I.e. callback will wait timeout (ms) after we are
+ * done resizing to fire.
+ */
+const handleResizeWindow = (callback, timeout = 75) => {
+    let timer;
+
+    window.addEventListener('resize', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            callback();
+        }, timeout);
+    });
+};
+
 export {
     ready,
-    fontawesomeReady
+    fontawesomeReady,
+    handleResizeWindow
 };

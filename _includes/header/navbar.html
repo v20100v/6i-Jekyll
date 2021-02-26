@@ -27,9 +27,12 @@
                 </li>
                 {% endif %}
 
+                {% if site.contact.enable and site.contact.link.in_menu %}
                 <li class="nav-item">
                     {% include elements/linkActive.html linktext="Contact" href="/contact/" url="/contact/" %}
                 </li>
+                {% endif %}
+
                 <li class="nav-item">
                     {% include elements/linkActive.html linktext="<i class='fas fa-tags'></i>" href="/tags" url="/tags" %}
                 </li>

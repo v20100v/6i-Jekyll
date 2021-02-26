@@ -33,3 +33,9 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
+
+/* Overrides Bootstrap's styles */
+
+.alert-danger a {
+  color: #e83e8c !important;
+}

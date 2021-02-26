@@ -62,14 +62,9 @@ Dom.ready(() => {
      * Refresh view on resize window
      */
     const _handleResizeWindow = () => {
-        let timer;
-
-        window.addEventListener('resize', function () {
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                _handleHeightCardTitle();
-                _layoutAllMasonries();
-            }, 75);
+        Dom.handleResizeWindow(()=> {
+            _handleHeightCardTitle();
+            _layoutAllMasonries();
         });
     };
 

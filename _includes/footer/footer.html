@@ -1,4 +1,14 @@
-<footer>
+<footer id="main-footer">
+
+    {% if page.url == "/contact/" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-10 mx-auto">
+                <div class="contact-footer"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
     <svg class="wave" width="100%" height="50px" preserveAspectRatio="none"
          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 75">
@@ -47,15 +57,26 @@
 
                         {% include footer/followMe.html %}
 
-                        {% if site.social.email_address %}
-                        <li class="list-inline-item">
-                            <a href="mailto:{{ site.social.email_address }}" title="Write me an email">
-		                    <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
+                        {% if site.contact.enable and site.contact.link.in_footer %}
+                            <li class="list-inline-item">
+                                <a href="{{ '/contact/' | relative_url }}" title="Send me a message">
+		                            <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        {% else %}
+                            {% if site.social.email_address %}
+                                <li class="list-inline-item">
+                                    <a href="mailto:{{ site.social.email_address }}" title="Write me an email">
+		                            <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         {% endif %}
 
                         {% include footer/socialShare.html %}
@@ -70,3 +91,4 @@
     </div>
 
     {% include footer/javascripts.html %}
+</footer>

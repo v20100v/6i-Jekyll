@@ -104,10 +104,11 @@ Finally to push gem
 ├── doc                         # Documentation of 6i-Jekyll, built with itself
 ├── node_modules                # Installed Node.js dependencies
 ├── pages                       # Theme pages
-|   ├── 404.md                  # Not found page
-|   ├── notes.md                # Blog to show post pages
-|   ├── projects.md             # Portfolio page for IT projects
-|   └── tags.md                 # List all tags in webiste with related pages
+|   ├── 404.html                # Not found page
+|   ├── contact.html            # Contact form
+|   ├── notes.html              # Blog to show post pages
+|   ├── projects.html           # Portfolio page for IT projects
+|   └── tags.html               # List all tags in webiste with related pages
 ├── test                        # To test locally this theme
 ├── .gitignore                  # sample configuration
 ├── _config.yml                 # Sample Jekyll configuration
@@ -124,6 +125,7 @@ Finally to push gem
 
 - [Configure : Site configuration]()
 - [Configure : "*Follow me*" & "*Social share*" buttons in footer](_doc/configure-footer-social.md)
+- [Configure : "*Contact form*" page](_doc/configure-contact-page.md)
 
 ### Features on layout and page
 
