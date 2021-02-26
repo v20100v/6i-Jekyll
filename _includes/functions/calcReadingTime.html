@@ -1,4 +1,4 @@
-{%- assign words = include.content | number_of_words:"auto" -%}
+{%- assign words = include.content | strip_html | number_of_words:"auto" -%}
 {%- assign readingTime = words | divided_by: site.calc_reading_time.words_by_minutes -%}
 
 {%- if site.calc_reading_time.enable -%}
