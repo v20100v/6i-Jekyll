@@ -2,7 +2,6 @@
 layout: page
 webpack_entry_scripts: ['main', 'page']
 webpack_entry_styles: ['main', 'page']
-disable_header_title: true
 ---
 
 <!-- Main Content -->
@@ -26,7 +25,13 @@ disable_header_title: true
                     </a>
 
                     <span class="note-tags ml-4 text-lg-end text-xl-end text-xxl-end">
-                        <span class='badge bg-primary badge-tag'>{{ post.tags | join: "</span> <span class='badge bg-primary badge-tag'>"}}</span>
+                        {%- for item in post.tags -%}
+                            {% assign itemDowncase = item | downcase %}
+                            {% assign tag = tag | downcase %}
+                            <a class='badge bg-primary badge-tag' href="{{ '/tags' | relative_url }}#{{ item | downcase | strip | cgi_escape }}">
+                                <i class="fa fa-tag fa-fw"></i> {{ item | capitalize | strip | cgi_escape }}
+                            </a >
+                        {%- endfor -%}
                     </span>
                 </li>
             {% endfor %}

@@ -20,7 +20,6 @@
 
     a {
       text-decoration: none;
-      margin-right: 20px;
 
       .note-metadata {
         color: rgba(50, 50, 50, 0.7);
@@ -35,6 +34,7 @@
 
       .note-excerpt {
         color: var(--bs-dark);
+        margin-bottom: 0.5rem;
       }
     }
 
@@ -63,6 +63,26 @@
     margin-top: 20px;
     text-align: left;
   }
+}
 
+.badge-tag {
+  margin-right: 5px;
+  cursor: pointer;
 
+  &:hover {
+    color: var(--bs-dark);
+  }
+
+  &.bg-primary {
+    .fa-tag {
+      color: lighten($primary, 30%);
+    }
+
+  }
+
+  &.bg-secondary {
+    .fa-tag {
+      color: lighten($secondary, 30%);
+    }
+  }
 }

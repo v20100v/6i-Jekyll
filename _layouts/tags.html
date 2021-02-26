@@ -27,51 +27,115 @@ webpack_entry_styles: ['main', 'tags']
         {% assign rawtags = rawtags | append:page_tags %}
     {% endif %}
 {% endfor %}
-{% assign tags = rawtags | upcase | split:'|' | sort | uniq %}
+{% assign tags = rawtags | downcase | split:'|' | sort | uniq %}
 
 <!-- Main Content -->
 <div class="container">
 
     <div class="row">
-        <div class="col-lg-12 col-md-12 mx-auto">
-            <div class="list-tags">
-                {% if tags.size > 0 %}
-                <div id="page-tags">
-                    {% for tag in tags %}
-                        <a class="page-tag" href="{{ "/tags" | relative_url }}#{{ tag | strip | cgi_escape }}">{{ tag | strip }}</a>
-                    {% endfor %}
-                </div>
-                {% else %}
-                    <p>No tags found in your post, site and project pages.</p>
-                {% endif %}
+        <div class="col-12 col-xl-12 mx-auto">
+
+            <!-- Buttons : show as list, show as grid -->
+            <div class="container-buttons">
+                <button id="btn-show-tags"
+                        title="Show all tags"
+                        class="btn btn-primary"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFilters"
+                        aria-expanded="false"
+                        aria-controls="collapseFilters"><i class="fas fa-filter"></i>
+                </button>
+                <button id="btn-show-excerpt"
+                        title="Show excerpt"
+                        type="button" class="btn btn-primary"><i class="fas fa-quote-right"></i>
+                </button>
             </div>
         </div>
     </div>
 
+    <div id="collapseFilters" class="collapse show row mt-2">
+        <div class="col-12 mx-auto text-center">
+            <div class="container-actions">
+                <hr/>
+
+                <div class="list-tags">
+                    {% if tags.size > 0 %}
+                    {%- for tag in tags -%}
+                    <a href="{{ '/tags' | relative_url }}#{{ tag | strip | cgi_escape }}"
+                       class="btn btn-outline-primary btn-tags">
+                        {{ tag | capitalize | strip | cgi_escape }}
+                    </a >
+                    {%- endfor -%}
+                    {% else %}
+                    <p>No tags found in your post, site and project pages.</p>
+                    {% endif %}
+                </div>
+
+                <hr/>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row">
-        <div class="co-lg-10 col-md-10 mx-auto">
+        <div class="col-12 mx-auto">
             {% for tag in tags %}
                 <div class="list-pages-by-tag">
-                    <h3 id="{{ tag | cgi_escape }}" class="tag-anchor">
-                        <i class="fa fa-tag fa-fw"></i> {{ tag }}
-                        <a href="#main-header" style="float: right"><i class="fa fa-chevron-up" aria-hidden="true"> </i> </a>
+                    <a class='float-end mx-4 chevron-up' href="#main-header"><i class="fa fa-chevron-up" aria-hidden="true"></i> </a>
+                    <h3 id="{{ tag | cgi_escape }}" class="tag-anchor title-with-hr">
+                        <i class="fa fa-tag fa-fw"></i> {{ tag | capitalize | strip | cgi_escape }}
                     </h3>
                 </div>
 
                 <!-- Posts -->
+                <ul class="notes-list-simple d-none">
                 {% for post in site.posts %}
-                    {% assign post_tags = post.tags | join: ',' | upcase | split: ',' %}
+                    {% assign post_tags = post.tags | join: ',' | downcase | split: ',' %}
                     {% if post_tags contains tag %}
                     <li class="d-flex justify-content-between">
                         <span class="post-title flex-grow-1 mr-2">
-                            {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        </span>
-                        <span class="post-categories ml-auto">
+                            <span class="note-date">
+                                {%- include functions/i18nFormatDayDate.html date=post.date -%}&nbsp;::&nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            </span>
                         </span>
                     </li>
                     {% endif %}
                 {% endfor %}
+                </ul>
 
+                <ul class="notes-list">
+                {% for post in site.posts %}
+                    {% assign post_tags = post.tags | join: ',' | downcase | split: ',' %}
+                    {% if post_tags contains tag %}
+                    <li class="note-stub d-flex flex-column flex-lg-row flex-xl-row justify-content-between">
+                        <a href="{{ post.url | relative_url }}" title="Go to post detail" class="flex-grow-1">
+                            <h4 class="note-title">{{ post.title }}</h4>
+                            <div class="note-metadata">
+                                <span class="note-date">
+                                    <i class="fas fa-calendar-day"></i>&nbsp; {%- include functions/i18nFormatDayDate.html date=post.date -%}
+                                </span>
+                                {%- include functions/calcReadingTime.html content=post.content -%}
+                            </div>
+                            <div class="note-excerpt">
+                                {{ post.excerpt | strip_html | escape | strip }}
+                            </div>
+                        </a>
+
+                        <span class="note-tags ml-4 text-lg-end text-xl-end text-xxl-end">
+                            {%- for item in post.tags -%}
+                                {% assign itemDowncase = item | downcase %}
+                                {% assign tag = tag | downcase %}
+                                <a class='badge {% if itemDowncase == tag %} bg-secondary {% else %} bg-primary {% endif %} badge-tag' href="{{ '/tags' | relative_url }}#{{ item | downcase | strip | cgi_escape }}">
+                                    <i class="fa fa-tag fa-fw"></i> {{ item | capitalize | strip | cgi_escape }}
+                                </a >
+                            {%- endfor -%}
+                        </span>
+
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
             {% endfor %}
         </div>
     </div>

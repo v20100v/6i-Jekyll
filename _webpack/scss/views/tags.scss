@@ -1,0 +1,24 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+@import "../includes/notes";
+
+.btn-tags {
+  font-size: 16px !important;
+}
+
+h3.tag-anchor {
+  margin-top: 1rem;
+  padding-top: 2em;
+}
+
+.notes-list {
+  margin-top: 0;
+}
+
+.chevron-up {
+  margin-top: 3rem;
+}
