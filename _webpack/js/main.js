@@ -5,6 +5,7 @@ import '../scss/main.scss';
 import * as Utils from './utils';
 
 Utils.Dom.ready(() => {
+    Utils.Dom.consologo();
 
     /**
      * In tartiflette we trust !

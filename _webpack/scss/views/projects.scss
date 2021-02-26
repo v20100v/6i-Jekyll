@@ -17,26 +17,13 @@
   }
 }
 
-.buttonsGridList {
-  float: right;
-  cursor: pointer;
-}
-
 .projects-as-grid, .projects-as-list {
   .title-with-hr:first-of-type {
     margin-top: 0.5em !important;
   }
 }
 
-.filters {
-  background: var(--bs-light);
-
-  .filter-types button, .filter-technologies button {
-    margin-right: 1em;
-    margin-bottom: 0.5em;
-    font-weight: 700;
-    line-height: 1;
-  }
+.container-filters {
 
   .filter-technologies {
     margin-top: 1.5em;

@@ -130,7 +130,6 @@ dd {
 }
 
 
-
 .btn {
   border-radius: 0 !important;
 }
@@ -180,4 +179,20 @@ pre {
 
 .title-with-hr:after {
   margin-left: 15px;
+}
+
+.container-buttons {
+  float: right;
+  cursor: pointer;
+}
+
+.container-filters, .container-actions {
+  background: var(--bs-light);
+
+  button.btn, a.btn {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1;
+  }
 }

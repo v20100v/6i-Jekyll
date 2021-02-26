@@ -125,7 +125,7 @@ Finally to push gem
 
 - [Configure : Site configuration]()
 - [Configure : "*Follow me*" & "*Social share*" buttons in footer](_doc/configure-footer-social.md)
-- [Configure : "*Contact form*" page](_doc/configure-contact-page.md)
+- [Configure : "*Contact form*" page](_doc/configure-contact-form-page.md)
 
 ### Features on layout and page
 

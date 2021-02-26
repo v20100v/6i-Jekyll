@@ -17,10 +17,10 @@ const package = require('./package.json');
 module.exports = {
     entry: {
         main: path.join(webpackSource, 'js', 'main.js'),
-        consologo: path.join(webpackSource, 'js', 'consologo.js'),
-        projects: path.join(webpackSource, 'js', 'projects.js'),
-        page: path.join(webpackSource, 'js', 'page.js'),
-        contact: path.join(webpackSource, 'js', 'contact.js')
+        projects: path.join(webpackSource, 'js', 'views', 'projects.js'),
+        tags: path.join(webpackSource, 'js', 'views', 'tags.js'),
+        page: path.join(webpackSource, 'js', 'views', 'page.js'),
+        contact: path.join(webpackSource, 'js', 'views', 'contact.js')
     },
     output: {
         filename: EnvironmentDev ? '[name].bundle.js' : '[name].[contenthash].bundle.js',

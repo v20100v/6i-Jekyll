@@ -1,8 +1,8 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.min.css';
 
-import '../scss/layouts/page.scss';
-import * as Dom from "./utils/Dom";
+import '../../scss/views/page.scss';
+import * as Dom from "../utils/Dom";
 
 Dom.ready(() => {
     let swipers = [];
@@ -35,6 +35,8 @@ Dom.ready(() => {
                 });
                 swipers.push(temp);
             }
+
+            console.debug('[6i-Jekyll] Found ' + items.length + ' carousel "swipers.js" to initialize');
         }
     };
 

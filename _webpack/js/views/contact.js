@@ -1,5 +1,5 @@
-import '../scss/layouts/contact.scss';
-import * as Dom from "./utils/Dom";
+import '../../scss/views/contact.scss';
+import * as Dom from "../utils/Dom";
 import Swiper from "swiper";
 
 Dom.ready(() => {
@@ -116,7 +116,7 @@ Dom.ready(() => {
      * In tartiflette we trust !
      */
     (function initView() {
-        console.debug('[6i-Jekyll] Init "Contact" view.');
+        console.debug('[6i-Jekyll] Init "Contact" view');
 
         if(document.querySelector('.contact') !== null) {
             _setNumberRowsOfTextarea();

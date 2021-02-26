@@ -1,7 +1,7 @@
 import Masonry from 'masonry-layout';
 
-import '../scss/layouts/projects.scss';
-import * as Dom from "./utils/Dom";
+import '../../scss/views/projects.scss';
+import * as Dom from "../utils/Dom";
 
 Dom.ready(() => {
 
@@ -21,6 +21,7 @@ Dom.ready(() => {
             });
             masonries.push(masonry);
         });
+        console.debug('[6i-Jekyll] Found ' + grids.length + ' grids "masonry.js" to initialize');
 
         _handleHeightCardTitle();
         _layoutAllMasonries();
@@ -296,7 +297,6 @@ Dom.ready(() => {
             }
         }
 
-
         function _applyMultipleFilters() {
             // No filters, show all projects
             if (filters.filterByType.length === 0 && filters.filterByTechnology.length === 0) {
@@ -375,6 +375,7 @@ Dom.ready(() => {
                 let userPreferences = {};
                 userPreferences.showTechnologies = window.localStorage.getItem('userPreferences.showTechnologies');
                 userPreferences.showAs = window.localStorage.getItem('userPreferences.showAs');
+                console.debug('[6i-Jekyll] Load user preferences from local storage. userPreferences =', userPreferences);
 
                 // Show or hide blocs technologies
                 if (userPreferences.showTechnologies === 'true') {
@@ -392,7 +393,7 @@ Dom.ready(() => {
                     _showAsGrid(btn, svg);
                 }
             } else {
-                console.warn('[6i-Jekyll-Theme] Local Storage not Supported, please stop MINITEL !');
+                console.warn('[6i-Jekyll] Local Storage is not supported in your browser, please stop MINITEL !');
             }
         });
     };
@@ -401,6 +402,8 @@ Dom.ready(() => {
      * In tartiflette we trust !
      */
     (function initView() {
+        console.debug('[6i-Jekyll] Init "Projects" view');
+
         _loadUserPreferences();
         _initMasonry();
         _handleHeightCardTitle();
