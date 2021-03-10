@@ -70,19 +70,25 @@
   cursor: pointer;
 
   &:hover {
-    color: var(--bs-dark);
+    color: var(--bs-white);
+    background: linear-gradient(to left, var(--bs-dark), var(--bs-primary));
   }
+
 
   &.bg-primary {
     .fa-tag {
       color: lighten($primary, 30%);
     }
-
   }
 
   &.bg-secondary {
     .fa-tag {
       color: lighten($secondary, 30%);
     }
+
+    &:hover {
+      background: linear-gradient(to left, var(--bs-dark), var(--bs-secondary));
+    }
   }
+
 }

@@ -9,6 +9,7 @@
 @import "../includes/carrousel";
 @import "../includes/mockup";
 @import "../includes/notes";
+@import "../includes/_overlay";
 
 blockquote {
   background: $gray-300;
@@ -74,3 +75,5 @@ samp {
 .post-preview {
   margin-top: 40px;
 }
+
+

@@ -11,14 +11,12 @@ header {
       text-shadow: 2px 4px 0 rgb(0 0 0 / 40%);
 
       @media screen and (max-height: map-get($grid-breakpoints, 'md')) {
-        display: none;
         + svg.diagonal {
           height: 45px;
         }
       }
 
       @include media-breakpoint-down(sm) {
-        display: none;
         + svg.diagonal {
           height: 45px;
         }
