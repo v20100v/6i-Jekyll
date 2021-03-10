@@ -1,7 +1,7 @@
 <header id="main-header" class="bg-dark">
     {% include header/navbar.html %}
 
-    {% if layout.disable_header_title != true %}
+    {% if layout.disable_header_title or page.disable_header_title  != true %}
 
         {% if page.image %}
             {% assign page_image = page.image.path | default: page.image %}

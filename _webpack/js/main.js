@@ -12,5 +12,6 @@ Utils.Dom.ready(() => {
      */
     (function initView() {
         Utils.SocialShare.handlerSocialShare();
+        Utils.Images.handleClickFullscreenImages();
     })();
 });

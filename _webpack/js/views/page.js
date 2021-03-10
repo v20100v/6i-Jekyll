@@ -15,10 +15,10 @@ Dom.ready(() => {
 
         if (items.length > 0) {
             for (let item of items) {
+
                 let temp = new Swiper(item, {
                     loop: true,
                     zoom: true,
-                    autoHeight: true,
                     spaceBetween: 40,
                     pagination: {
                         el: '.swiper-pagination',

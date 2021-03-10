@@ -16,7 +16,7 @@
         {%- endcapture -%}
         {%- capture errorDebug -%}
             <b>slides</b> : {{ slides }}<br/>
-            <b>classes</b> : {{ classes }}
+            <b>classes</b> : {{ classes | join: ", " }}
         {%- endcapture -%}
         {%- include functions/alert.html title='Error in carousel swiper.js' body=errorMsg debug=errorDebug -%}
     {%- endif -%}
@@ -44,7 +44,6 @@
                             </div>
                         </div>
                         <div class="gloss"></div>
-                        <div class="reflexion"></div>
                         <div class="highlight one"></div>
                         <div class="highlight two"></div>
                     </div>

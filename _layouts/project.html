@@ -1,14 +1,16 @@
 ---
 layout: page
+webpack_entry_scripts: ['main']
+webpack_entry_styles: ['main', 'projects']
 ---
 
 <!-- Main Content -->
 <div class="container project">
 
     <h1>
-        {{ page.title }} ::
+        {{ page.title }}
         {% if page.subtitle %}
-            <span class="project-subtitle">{{ page.subtitle }}</span>
+            :: <span class="project-subtitle">{{ page.subtitle }}</span>
         {% endif %}
     </h1>
 
